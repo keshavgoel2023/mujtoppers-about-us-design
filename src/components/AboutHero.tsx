@@ -20,7 +20,7 @@ const AboutHero = () => {
             MuJToppers
           </h1>
           <p className="text-2xl md:text-3xl text-gray-700 mb-8 font-medium animate-fade-in" style={{ animationDelay: '0.2s' }}>
-            "Brains, Bunking, Balance. Welcome to MuJToppers."
+            "Brains, Bunking, Balance. Welcome to MUJToppers."
           </p>
           <p className="text-lg text-gray-600 mb-10 max-w-2xl mx-auto leading-relaxed animate-fade-in" style={{ animationDelay: '0.4s' }}>
             Your ultimate platform for academic excellence, peer connection, and balanced student life at MU.
