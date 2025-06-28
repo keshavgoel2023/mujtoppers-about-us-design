@@ -4,8 +4,18 @@ import { Button } from "@/components/ui/button";
 const AboutHero = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-purple-50 to-orange-50">
+      {/* Background Image */}
+      <div className="absolute inset-0 z-0">
+        <img 
+          src="/lovable-uploads/197e2dc3-1ddb-4466-b2eb-532d113b0ab4.png" 
+          alt="Architectural Background" 
+          className="w-full h-full object-cover opacity-20"
+        />
+        <div className="absolute inset-0 bg-gradient-to-br from-purple-50/80 to-orange-50/80"></div>
+      </div>
+
       {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-10">
+      <div className="absolute inset-0 opacity-10 z-5">
         <div className="absolute top-10 left-10 w-20 h-20 border-2 border-purple-300 rounded-full"></div>
         <div className="absolute top-32 right-20 w-16 h-16 border-2 border-orange-300 transform rotate-45"></div>
         <div className="absolute bottom-20 left-20 w-12 h-12 border-2 border-blue-300 rounded-full"></div>
