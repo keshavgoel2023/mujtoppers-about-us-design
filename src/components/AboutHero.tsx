@@ -9,9 +9,9 @@ const AboutHero = () => {
         <img 
           src="/lovable-uploads/197e2dc3-1ddb-4466-b2eb-532d113b0ab4.png" 
           alt="Architectural Background" 
-          className="w-full h-full object-cover opacity-20"
+          className="w-full h-full object-cover opacity-60"
         />
-        <div className="absolute inset-0 bg-gradient-to-br from-purple-50/80 to-orange-50/80"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-purple-50/60 to-orange-50/60"></div>
       </div>
 
       {/* Background Pattern */}
