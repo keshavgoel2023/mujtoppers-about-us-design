@@ -27,13 +27,13 @@ const AboutHero = () => {
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center max-w-4xl mx-auto">
           <h1 className="text-6xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-purple-600 via-orange-500 to-purple-600 bg-clip-text text-transparent animate-fade-in">
-            MUJToppers
+            MUJ Toppers
           </h1>
           <p className="text-2xl md:text-3xl text-gray-700 mb-8 font-medium animate-fade-in" style={{ animationDelay: '0.2s' }}>
-            "Brains, Bunking, Balance. Welcome to MUJToppers."
+            "Brains, Bunking, Balance. Welcome to MUJ Toppers."
           </p>
           <p className="text-lg text-gray-600 mb-10 max-w-2xl mx-auto leading-relaxed animate-fade-in" style={{ animationDelay: '0.4s' }}>
-            Your ultimate platform for academic excellence, peer connection, and balanced student life at MU.
+            Your ultimate platform for academic excellence, peer connection, and balanced student life at MUJ.
           </p>
           <Button 
             size="lg" 
