@@ -80,20 +80,20 @@ const TeamStructure = () => {
                 <CarouselItem key={member.name}>
                   <div className="flex flex-col items-center justify-center p-8">
                     <div className="relative mb-8">
-                      {/* Large animated circle for featured member */}
-                      <div className={`w-48 h-48 ${member.color} rounded-full shadow-2xl animate-pulse flex items-center justify-center transform transition-all duration-700 hover:scale-105`}>
-                        <div className="w-40 h-40 bg-white rounded-full flex items-center justify-center shadow-inner">
-                          <div className="w-32 h-32 bg-gradient-to-br from-gray-200 to-gray-300 rounded-full flex items-center justify-center">
-                            <span className="text-4xl font-bold text-gray-600">
+                      {/* Large animated circle for featured member - increased size */}
+                      <div className={`w-64 h-64 ${member.color} rounded-full shadow-2xl animate-pulse flex items-center justify-center transform transition-all duration-700 hover:scale-105`}>
+                        <div className="w-56 h-56 bg-white rounded-full flex items-center justify-center shadow-inner">
+                          <div className="w-48 h-48 bg-gradient-to-br from-gray-200 to-gray-300 rounded-full flex items-center justify-center">
+                            <span className="text-5xl font-bold text-gray-600">
                               {member.name.charAt(0)}
                             </span>
                           </div>
                         </div>
                       </div>
                       
-                      {/* Floating decorative elements */}
-                      <div className="absolute -top-4 -right-4 w-8 h-8 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full animate-bounce"></div>
-                      <div className="absolute -bottom-4 -left-4 w-6 h-6 bg-gradient-to-r from-orange-400 to-yellow-400 rounded-full animate-bounce" style={{ animationDelay: '0.5s' }}></div>
+                      {/* Floating decorative elements - increased size */}
+                      <div className="absolute -top-6 -right-6 w-12 h-12 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full animate-bounce"></div>
+                      <div className="absolute -bottom-6 -left-6 w-10 h-10 bg-gradient-to-r from-orange-400 to-yellow-400 rounded-full animate-bounce" style={{ animationDelay: '0.5s' }}></div>
                     </div>
                     
                     <h3 className="text-3xl font-bold text-gray-800 mb-2 text-center">
@@ -148,19 +148,20 @@ const TeamStructure = () => {
                   style={{ animationDelay: `${index * 0.2}s` }}
                 >
                   <div className="relative mb-6">
-                    <div className={`w-24 h-24 ${member.color} rounded-full mx-auto shadow-xl group-hover:shadow-2xl transition-all duration-300 flex items-center justify-center`}>
-                      <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-inner">
-                        <div className="w-16 h-16 bg-gradient-to-br from-gray-200 to-gray-300 rounded-full flex items-center justify-center">
-                          <span className="text-xl font-bold text-gray-700">
+                    {/* Increased core member circle size */}
+                    <div className={`w-32 h-32 ${member.color} rounded-full mx-auto shadow-xl group-hover:shadow-2xl transition-all duration-300 flex items-center justify-center`}>
+                      <div className="w-28 h-28 bg-white rounded-full flex items-center justify-center shadow-inner">
+                        <div className="w-24 h-24 bg-gradient-to-br from-gray-200 to-gray-300 rounded-full flex items-center justify-center">
+                          <span className="text-2xl font-bold text-gray-700">
                             {member.name.split(' ')[2]}
                           </span>
                         </div>
                       </div>
                     </div>
                     
-                    {/* Floating elements around each core member */}
-                    <div className="absolute -top-2 -right-2 w-4 h-4 bg-gradient-to-r from-yellow-400 to-orange-400 rounded-full animate-bounce opacity-70"></div>
-                    <div className="absolute -bottom-2 -left-2 w-3 h-3 bg-gradient-to-r from-pink-400 to-purple-400 rounded-full animate-bounce opacity-70" style={{ animationDelay: '0.3s' }}></div>
+                    {/* Floating elements around each core member - increased size */}
+                    <div className="absolute -top-3 -right-3 w-6 h-6 bg-gradient-to-r from-yellow-400 to-orange-400 rounded-full animate-bounce opacity-70"></div>
+                    <div className="absolute -bottom-3 -left-3 w-5 h-5 bg-gradient-to-r from-pink-400 to-purple-400 rounded-full animate-bounce opacity-70" style={{ animationDelay: '0.3s' }}></div>
                   </div>
                   
                   <h4 className="font-bold text-gray-800 text-lg mb-2">{member.name}</h4>
