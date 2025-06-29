@@ -2,6 +2,7 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { Instagram, Linkedin, MessageCircle } from "lucide-react";
 import { useState } from "react";
 import { toast } from "sonner";
 
@@ -118,7 +119,39 @@ const ContactSection = () => {
 
               <div className="mt-8 text-center text-gray-600">
                 <p className="text-sm">Visit us at:</p>
-                <p className="text-lg font-semibold text-purple-600">www.mujtoppers.in</p>
+                <p className="text-lg font-semibold text-purple-600 mb-6">www.mujtoppers.in</p>
+                
+                {/* Social Media Links */}
+                <div className="flex justify-center space-x-6">
+                  <a
+                    href="https://www.instagram.com/mujtoppers/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center w-12 h-12 bg-gradient-to-r from-pink-500 to-purple-600 rounded-full text-white hover:scale-110 transition-all duration-300 shadow-lg hover:shadow-xl"
+                  >
+                    <Instagram size={24} />
+                  </a>
+                  
+                  <a
+                    href="https://www.linkedin.com/company/muj-toppers/posts/?feedView=all"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center w-12 h-12 bg-gradient-to-r from-blue-600 to-blue-700 rounded-full text-white hover:scale-110 transition-all duration-300 shadow-lg hover:shadow-xl"
+                  >
+                    <Linkedin size={24} />
+                  </a>
+                  
+                  <a
+                    href="https://wa.me/+919876543210"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center w-12 h-12 bg-gradient-to-r from-green-500 to-green-600 rounded-full text-white hover:scale-110 transition-all duration-300 shadow-lg hover:shadow-xl"
+                  >
+                    <MessageCircle size={24} />
+                  </a>
+                </div>
+                
+                <p className="text-xs text-gray-500 mt-3">Follow us on social media</p>
               </div>
             </div>
           </div>
