@@ -148,7 +148,7 @@ const TeamStructure = () => {
                   style={{ animationDelay: `${index * 0.2}s` }}
                 >
                   <div className="relative mb-6">
-                    <div className={`w-24 h-24 ${member.color} rounded-full mx-auto shadow-xl group-hover:shadow-2xl transition-all duration-300 flex items-center justify-center animate-pulse`}>
+                    <div className={`w-24 h-24 ${member.color} rounded-full mx-auto shadow-xl group-hover:shadow-2xl transition-all duration-300 flex items-center justify-center`}>
                       <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-inner">
                         <div className="w-16 h-16 bg-gradient-to-br from-gray-200 to-gray-300 rounded-full flex items-center justify-center">
                           <span className="text-xl font-bold text-gray-700">
