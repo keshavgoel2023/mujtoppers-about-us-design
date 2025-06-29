@@ -16,7 +16,7 @@ const AboutSection = () => {
               <div>
                 <h2 className="text-4xl font-bold mb-6 text-gray-800">About us</h2>
                 <p className="text-gray-600 mb-6 leading-relaxed">
-                  As veterans of MU, we've been through the stress, the endless assignments, last minute exam prep, and the hunt for reliable notes. We've always wished for a platform that made things easy for juniors, and that's exactly what we've created: MuJToppers.
+                  As veterans of MUJ, we've been through the stress, the endless assignments, last minute exam prep, and the hunt for reliable notes. We've always wished for a platform that made things easy for juniors, and that's exactly what we've created: MuJToppers.
                 </p>
                 <p className="text-gray-600 mb-8 leading-relaxed">
                   With our dedicated team, we bring you PDFs, toppers' notes, study tips all in one place.
@@ -28,7 +28,7 @@ const AboutSection = () => {
               <div className="relative">
                 <img 
                   src="/lovable-uploads/8360bd53-c928-4b71-99db-254c939cd235.png" 
-                  alt="MuJToppers Team" 
+                  alt="MUJ Toppers Team" 
                   className="rounded-2xl shadow-lg w-full h-64 object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent rounded-2xl"></div>
