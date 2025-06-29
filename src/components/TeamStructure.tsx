@@ -17,6 +17,14 @@ const TeamStructure = () => {
     { name: "Head of Operations", level: 4, color: "bg-rose-500", description: "Operational efficiency" }
   ];
 
+  const coreCommittee = [
+    { name: "Core Member 1", color: "bg-gradient-to-r from-purple-500 to-pink-500", description: "Strategic Excellence" },
+    { name: "Core Member 2", color: "bg-gradient-to-r from-blue-500 to-cyan-500", description: "Innovation Leader" },
+    { name: "Core Member 3", color: "bg-gradient-to-r from-green-500 to-teal-500", description: "Growth Catalyst" },
+    { name: "Core Member 4", color: "bg-gradient-to-r from-orange-500 to-red-500", description: "Vision Architect" },
+    { name: "Core Member 5", color: "bg-gradient-to-r from-indigo-500 to-purple-500", description: "Excellence Driver" }
+  ];
+
   const [currentIndex, setCurrentIndex] = useState(0);
   const [api, setApi] = useState<any>();
 
@@ -58,7 +66,7 @@ const TeamStructure = () => {
         </div>
 
         {/* Hero Team Member Carousel */}
-        <div className="max-w-4xl mx-auto mb-16">
+        <div className="max-w-4xl mx-auto mb-20">
           <Carousel 
             setApi={setApi}
             className="w-full"
@@ -123,48 +131,48 @@ const TeamStructure = () => {
           </div>
         </div>
 
-        {/* Team Grid - Smaller version */}
-        <div className="grid grid-cols-3 md:grid-cols-6 lg:grid-cols-11 gap-4 max-w-6xl mx-auto mb-16">
-          {teamData.map((member, index) => (
-            <div 
-              key={member.name}
-              className={`text-center group transition-all duration-500 hover:scale-110 cursor-pointer ${
-                index === currentIndex ? 'scale-110 opacity-100' : 'opacity-60'
-              }`}
-              onClick={() => handleDotClick(index)}
-              style={{ animationDelay: `${index * 0.1}s` }}
-            >
-              <div className={`w-16 h-16 ${member.color} rounded-full mx-auto mb-2 shadow-lg group-hover:shadow-xl transition-all duration-300 flex items-center justify-center transform ${
-                index === currentIndex ? 'animate-pulse' : ''
-              }`}>
-                <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center">
-                  <div className="w-8 h-8 bg-gray-300 rounded-full"></div>
-                </div>
-              </div>
-              <h4 className="font-medium text-gray-800 text-xs text-center leading-tight">
-                {member.name.split(' ').map((word, i) => (
-                  <div key={i}>{word}</div>
-                ))}
-              </h4>
-            </div>
-          ))}
-        </div>
-
-        {/* Core Committee Section */}
+        {/* Core Committee Section - Redesigned */}
         <div className="text-center">
-          <h3 className="text-2xl font-bold text-gray-800 mb-8">Core Committee</h3>
-          <div className="flex justify-center items-center space-x-6">
-            {[1, 2, 3, 4, 5].map((_, index) => (
-              <div 
-                key={index}
-                className="w-20 h-20 bg-gradient-to-br from-purple-400 to-orange-400 rounded-full shadow-lg animate-pulse flex items-center justify-center transform hover:scale-110 transition-all duration-300"
-                style={{ animationDelay: `${index * 0.2}s` }}
-              >
-                <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center">
-                  <div className="w-12 h-12 bg-gradient-to-br from-gray-200 to-gray-300 rounded-full"></div>
+          <h3 className="text-3xl font-bold text-gray-800 mb-4">Core Committee</h3>
+          <p className="text-lg text-gray-600 mb-12 max-w-2xl mx-auto">
+            The driving force behind our success - dedicated leaders shaping the future
+          </p>
+          
+          {/* Core Committee in a premium layout */}
+          <div className="max-w-5xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-8">
+              {coreCommittee.map((member, index) => (
+                <div 
+                  key={member.name}
+                  className="group text-center transform hover:scale-110 transition-all duration-500"
+                  style={{ animationDelay: `${index * 0.2}s` }}
+                >
+                  <div className="relative mb-6">
+                    <div className={`w-24 h-24 ${member.color} rounded-full mx-auto shadow-xl group-hover:shadow-2xl transition-all duration-300 flex items-center justify-center animate-pulse`}>
+                      <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-inner">
+                        <div className="w-16 h-16 bg-gradient-to-br from-gray-200 to-gray-300 rounded-full flex items-center justify-center">
+                          <span className="text-xl font-bold text-gray-700">
+                            {member.name.split(' ')[2]}
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    {/* Floating elements around each core member */}
+                    <div className="absolute -top-2 -right-2 w-4 h-4 bg-gradient-to-r from-yellow-400 to-orange-400 rounded-full animate-bounce opacity-70"></div>
+                    <div className="absolute -bottom-2 -left-2 w-3 h-3 bg-gradient-to-r from-pink-400 to-purple-400 rounded-full animate-bounce opacity-70" style={{ animationDelay: '0.3s' }}></div>
+                  </div>
+                  
+                  <h4 className="font-bold text-gray-800 text-lg mb-2">{member.name}</h4>
+                  <p className="text-sm text-gray-600 leading-relaxed">{member.description}</p>
+                  
+                  {/* Premium indicator */}
+                  <div className="flex justify-center mt-3">
+                    <div className="w-8 h-1 bg-gradient-to-r from-purple-500 to-orange-500 rounded-full"></div>
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </div>
