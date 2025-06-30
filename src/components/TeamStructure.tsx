@@ -19,7 +19,7 @@ const TeamStructure = () => {
   const coreCommittee = [
     { name: "Aakshara Tomar", color: "bg-gradient-to-r from-purple-500 to-pink-500", description: "Strategic Excellence", image: "/lovable-uploads/aakshara.jpg" },
     { name: "Ananya Tyagi", color: "bg-gradient-to-r from-blue-500 to-cyan-500", description: "Innovation Leader", image: "/lovable-uploads/ananya.jpg" },
-    { name: "Sahil Lenka", color: "bg-gradient-to-r from-green-500 to-teal-500", description: "Growth Catalyst", image: "public/lovable-uploads/sahil jr.jpg" },
+    { name: "Sahil Lenka", color: "bg-gradient-to-r from-green-500 to-teal-500", description: "Growth Catalyst", image: "/lovable-uploads/sahil-jr.jpg" },
     { name: "Udit Mishra", color: "bg-gradient-to-r from-orange-500 to-red-500", description: "Vision Architect", image: "/lovable-uploads/udit.jpg" },
     { name: "Vaishak Yadav", color: "bg-gradient-to-r from-indigo-500 to-purple-500", description: "Excellence Driver", image: "/lovable-uploads/vaishak.jpg" }
   ];
