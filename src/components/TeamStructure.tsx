@@ -1,178 +1,195 @@
 
-import { useState, useEffect } from "react";
-import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
+import { useState, useEffect, useRef } from "react";
 
 const TeamStructure = () => {
-  const teamData = [
-    { name: "Founder", level: 1, color: "bg-blue-500", description: "Leading the vision" },
-    { name: "Co-founder", level: 1, color: "bg-orange-500", description: "Driving innovation" },
-    { name: "President", level: 2, color: "bg-purple-500", description: "Strategic oversight" },
-    { name: "Vice President", level: 2, color: "bg-pink-500", description: "Operations lead" },
-    { name: "Technical Secretary", level: 3, color: "bg-green-500", description: "Tech coordination" },
-    { name: "Head of Sponsorship", level: 3, color: "bg-indigo-500", description: "Partnership development" },
-    { name: "Managing Director", level: 3, color: "bg-red-500", description: "Management excellence" },
-    { name: "General Secretary", level: 3, color: "bg-yellow-500", description: "Administrative lead" },
-    { name: "Head of Design", level: 4, color: "bg-teal-500", description: "Creative direction" },
-    { name: "Head of Tech", level: 4, color: "bg-cyan-500", description: "Technical leadership" },
-    { name: "Head of Operations", level: 4, color: "bg-rose-500", description: "Operational efficiency" }
-  ];
+  const [visibleNodes, setVisibleNodes] = useState<Set<number>>(new Set());
+  const observerRef = useRef<IntersectionObserver | null>(null);
 
-  const coreCommittee = [
-    { name: "Core Member 1", color: "bg-gradient-to-r from-purple-500 to-pink-500", description: "Strategic Excellence" },
-    { name: "Core Member 2", color: "bg-gradient-to-r from-blue-500 to-cyan-500", description: "Innovation Leader" },
-    { name: "Core Member 3", color: "bg-gradient-to-r from-green-500 to-teal-500", description: "Growth Catalyst" },
-    { name: "Core Member 4", color: "bg-gradient-to-r from-orange-500 to-red-500", description: "Vision Architect" },
-    { name: "Core Member 5", color: "bg-gradient-to-r from-indigo-500 to-purple-500", description: "Excellence Driver" }
-  ];
-
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [api, setApi] = useState<any>();
-
-  // Auto-advance carousel every 3 seconds
-  useEffect(() => {
-    if (!api) return;
-
-    const interval = setInterval(() => {
-      setCurrentIndex((prev) => {
-        const next = (prev + 1) % teamData.length;
-        api.scrollTo(next);
-        return next;
-      });
-    }, 3000);
-
-    return () => clearInterval(interval);
-  }, [api, teamData.length]);
-
-  const handleDotClick = (index: number) => {
-    setCurrentIndex(index);
-    api?.scrollTo(index);
+  const teamHierarchy = {
+    level1: [
+      { id: 1, name: "Founder", color: "bg-gradient-to-br from-blue-500 to-blue-600" },
+      { id: 2, name: "Co-founder", color: "bg-gradient-to-br from-orange-500 to-orange-600" }
+    ],
+    level2: [
+      { id: 3, name: "President", color: "bg-gradient-to-br from-purple-500 to-purple-600" },
+      { id: 4, name: "Vice President", color: "bg-gradient-to-br from-pink-500 to-pink-600" }
+    ],
+    level3: [
+      { id: 5, name: "Technical Secretary", color: "bg-gradient-to-br from-green-500 to-green-600" },
+      { id: 6, name: "Head of Operations", color: "bg-gradient-to-br from-red-500 to-red-600" },
+      { id: 7, name: "Managing Director", color: "bg-gradient-to-br from-indigo-500 to-indigo-600" },
+      { id: 8, name: "General Secretary", color: "bg-gradient-to-br from-yellow-500 to-yellow-600" }
+    ],
+    level4: [
+      { id: 9, name: "Core Committee", color: "bg-gradient-to-br from-teal-500 to-teal-600", isGroup: true }
+    ]
   };
 
+  useEffect(() => {
+    observerRef.current = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const nodeId = parseInt(entry.target.getAttribute('data-node-id') || '0');
+          if (entry.isIntersecting) {
+            setVisibleNodes(prev => new Set([...prev, nodeId]));
+          }
+        });
+      },
+      { threshold: 0.2, rootMargin: '50px' }
+    );
+
+    const nodes = document.querySelectorAll('[data-node-id]');
+    nodes.forEach(node => observerRef.current?.observe(node));
+
+    return () => observerRef.current?.disconnect();
+  }, []);
+
+  const NodeComponent = ({ node, delay = 0 }: { node: any, delay?: number }) => {
+    const isVisible = visibleNodes.has(node.id);
+    
+    return (
+      <div
+        data-node-id={node.id}
+        className={`relative transform transition-all duration-700 ease-out ${
+          isVisible 
+            ? 'translate-y-0 opacity-100 scale-100' 
+            : 'translate-y-8 opacity-0 scale-95'
+        }`}
+        style={{ transitionDelay: `${delay}ms` }}
+      >
+        <div className={`${node.color} rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 relative overflow-hidden`}>
+          {/* Background decoration */}
+          <div className="absolute top-0 right-0 w-16 h-16 bg-white/10 rounded-full transform translate-x-6 -translate-y-6"></div>
+          <div className="absolute bottom-0 left-0 w-12 h-12 bg-white/10 rounded-full transform -translate-x-4 translate-y-4"></div>
+          
+          <div className="relative z-10">
+            <div className="w-16 h-16 bg-white/20 rounded-full mx-auto mb-4 flex items-center justify-center backdrop-blur-sm">
+              <span className="text-2xl font-bold text-white">
+                {node.name.split(' ').map((word: string) => word[0]).join('').substring(0, 2)}
+              </span>
+            </div>
+            <h3 className="text-white font-bold text-center text-lg">
+              {node.name}
+            </h3>
+            {node.isGroup && (
+              <div className="flex justify-center space-x-2 mt-4">
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <div key={i} className="w-3 h-3 bg-white/40 rounded-full"></div>
+                ))}
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+    );
+  };
+
+  const ConnectionLine = ({ from, to, isVisible }: { from: string, to: string, isVisible: boolean }) => (
+    <div className={`absolute border-2 border-gray-300 transition-all duration-1000 ${
+      isVisible ? 'opacity-100 scale-x-100' : 'opacity-0 scale-x-0'
+    }`} style={{ transformOrigin: 'left' }}>
+      <div className="absolute -right-2 -top-2 w-4 h-4 bg-gray-300 rounded-full"></div>
+    </div>
+  );
+
   return (
-    <section className="py-20 bg-gradient-to-br from-purple-50 to-orange-50 relative overflow-hidden">
-      {/* Background Decorations */}
+    <section className="py-20 bg-gradient-to-br from-slate-50 to-blue-50 relative overflow-hidden">
+      {/* Background decorations */}
       <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-20 left-10 w-96 h-96 border-4 border-purple-300 rounded-full animate-pulse"></div>
-        <div className="absolute bottom-20 right-10 w-80 h-80 border-4 border-orange-300 rounded-full animate-pulse" style={{ animationDelay: '1s' }}></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 border-4 border-pink-300 rounded-full animate-pulse" style={{ animationDelay: '2s' }}></div>
+        <div className="absolute top-20 left-20 w-64 h-64 border-4 border-purple-300 rounded-full"></div>
+        <div className="absolute bottom-20 right-20 w-48 h-48 border-4 border-orange-300 rounded-full"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-32 h-32 border-4 border-pink-300 rounded-full"></div>
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold mb-4 text-gray-800">
-            "Meet the Brains Behind the Madness"
+          <h2 className="text-5xl font-bold mb-6 bg-gradient-to-r from-blue-600 via-purple-600 to-orange-500 bg-clip-text text-transparent">
+            Our Team Structure
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-purple-500 to-orange-500 mx-auto rounded-full"></div>
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            Meet the brilliant minds driving innovation and excellence at MUJ Toppers
+          </p>
+          <div className="w-32 h-1 bg-gradient-to-r from-blue-500 to-orange-500 mx-auto mt-4 rounded-full"></div>
         </div>
 
-        {/* Hero Team Member Carousel */}
-        <div className="max-w-4xl mx-auto mb-20">
-          <Carousel 
-            setApi={setApi}
-            className="w-full"
-            opts={{
-              align: "start",
-              loop: true,
-            }}
-          >
-            <CarouselContent>
-              {teamData.map((member, index) => (
-                <CarouselItem key={member.name}>
-                  <div className="flex flex-col items-center justify-center p-8">
-                    <div className="relative mb-8">
-                      {/* Large animated circle for featured member - increased size */}
-                      <div className={`w-64 h-64 ${member.color} rounded-full shadow-2xl animate-pulse flex items-center justify-center transform transition-all duration-700 hover:scale-105`}>
-                        <div className="w-56 h-56 bg-white rounded-full flex items-center justify-center shadow-inner">
-                          <div className="w-48 h-48 bg-gradient-to-br from-gray-200 to-gray-300 rounded-full flex items-center justify-center">
-                            <span className="text-5xl font-bold text-gray-600">
-                              {member.name.charAt(0)}
-                            </span>
-                          </div>
-                        </div>
-                      </div>
-                      
-                      {/* Floating decorative elements - increased size */}
-                      <div className="absolute -top-6 -right-6 w-12 h-12 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full animate-bounce"></div>
-                      <div className="absolute -bottom-6 -left-6 w-10 h-10 bg-gradient-to-r from-orange-400 to-yellow-400 rounded-full animate-bounce" style={{ animationDelay: '0.5s' }}></div>
-                    </div>
-                    
-                    <h3 className="text-3xl font-bold text-gray-800 mb-2 text-center">
-                      {member.name}
-                    </h3>
-                    <p className="text-lg text-gray-600 text-center max-w-md">
-                      {member.description}
-                    </p>
-                    
-                    {/* Level indicator */}
-                    <div className="flex space-x-1 mt-4">
-                      {Array.from({ length: member.level }).map((_, i) => (
-                        <div key={i} className="w-3 h-3 bg-gradient-to-r from-purple-400 to-orange-400 rounded-full"></div>
-                      ))}
-                    </div>
-                  </div>
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-          </Carousel>
-
-          {/* Dot indicators */}
-          <div className="flex justify-center space-x-2 mt-8">
-            {teamData.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => handleDotClick(index)}
-                className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                  index === currentIndex
-                    ? 'bg-gradient-to-r from-purple-500 to-orange-500 scale-125'
-                    : 'bg-gray-300 hover:bg-gray-400'
-                }`}
-              />
+        {/* Hierarchical Structure */}
+        <div className="max-w-6xl mx-auto">
+          {/* Level 1: Founders */}
+          <div className="flex justify-center space-x-12 mb-16">
+            {teamHierarchy.level1.map((node, index) => (
+              <NodeComponent key={node.id} node={node} delay={index * 200} />
             ))}
           </div>
-        </div>
 
-        {/* Core Committee Section - Redesigned */}
-        <div className="text-center">
-          <h3 className="text-3xl font-bold text-gray-800 mb-4">Core Committee</h3>
-          <p className="text-lg text-gray-600 mb-12 max-w-2xl mx-auto">
-            The driving force behind our success - dedicated leaders shaping the future
-          </p>
-          
-          {/* Core Committee in a premium layout */}
-          <div className="max-w-5xl mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-8">
-              {coreCommittee.map((member, index) => (
-                <div 
-                  key={member.name}
-                  className="group text-center transform hover:scale-110 transition-all duration-500"
-                  style={{ animationDelay: `${index * 0.2}s` }}
-                >
-                  <div className="relative mb-6">
-                    {/* Increased core member circle size */}
-                    <div className={`w-32 h-32 ${member.color} rounded-full mx-auto shadow-xl group-hover:shadow-2xl transition-all duration-300 flex items-center justify-center`}>
-                      <div className="w-28 h-28 bg-white rounded-full flex items-center justify-center shadow-inner">
-                        <div className="w-24 h-24 bg-gradient-to-br from-gray-200 to-gray-300 rounded-full flex items-center justify-center">
-                          <span className="text-2xl font-bold text-gray-700">
-                            {member.name.split(' ')[2]}
-                          </span>
-                        </div>
-                      </div>
+          {/* Connection lines from founders */}
+          <div className="flex justify-center mb-8">
+            <div className={`w-px h-12 bg-gray-300 transition-all duration-1000 ${
+              visibleNodes.size > 2 ? 'opacity-100 scale-y-100' : 'opacity-0 scale-y-0'
+            }`}></div>
+          </div>
+
+          {/* Level 2: Leadership */}
+          <div className="flex justify-center space-x-16 mb-16">
+            {teamHierarchy.level2.map((node, index) => (
+              <NodeComponent key={node.id} node={node} delay={400 + index * 200} />
+            ))}
+          </div>
+
+          {/* Connection lines to department heads */}
+          <div className="flex justify-center mb-8">
+            <div className={`w-px h-12 bg-gray-300 transition-all duration-1000 ${
+              visibleNodes.size > 4 ? 'opacity-100 scale-y-100' : 'opacity-0 scale-y-0'
+            }`}></div>
+          </div>
+          <div className="flex justify-center mb-8">
+            <div className={`h-px w-80 bg-gray-300 transition-all duration-1000 ${
+              visibleNodes.size > 4 ? 'opacity-100 scale-x-100' : 'opacity-0 scale-x-0'
+            }`}></div>
+          </div>
+
+          {/* Level 3: Department Heads */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16 max-w-4xl mx-auto">
+            {teamHierarchy.level3.map((node, index) => (
+              <NodeComponent key={node.id} node={node} delay={800 + index * 150} />
+            ))}
+          </div>
+
+          {/* Connection to core committee */}
+          <div className="flex justify-center mb-8">
+            <div className={`w-px h-12 bg-gray-300 transition-all duration-1000 ${
+              visibleNodes.size > 8 ? 'opacity-100 scale-y-100' : 'opacity-0 scale-y-0'
+            }`}></div>
+          </div>
+
+          {/* Level 4: Core Committee */}
+          <div className="flex justify-center">
+            {teamHierarchy.level4.map((node, index) => (
+              <NodeComponent key={node.id} node={node} delay={1400 + index * 200} />
+            ))}
+          </div>
+
+          {/* Core Committee Expansion */}
+          <div className={`mt-12 transition-all duration-1000 ${
+            visibleNodes.has(9) ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+          }`}>
+            <div className="bg-white/50 backdrop-blur-sm rounded-3xl p-8 border border-white/20 shadow-xl">
+              <h3 className="text-2xl font-bold text-center mb-6 text-gray-800">Core Committee Members</h3>
+              <div className="grid grid-cols-1 md:grid-cols-5 gap-6">
+                {Array.from({ length: 5 }).map((_, index) => (
+                  <div 
+                    key={index}
+                    className={`text-center transform transition-all duration-700 ${
+                      visibleNodes.has(9) ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
+                    }`}
+                    style={{ transitionDelay: `${1600 + index * 100}ms` }}
+                  >
+                    <div className="w-20 h-20 bg-gradient-to-br from-teal-400 to-blue-500 rounded-full mx-auto mb-3 shadow-lg flex items-center justify-center">
+                      <span className="text-white font-bold text-lg">{index + 1}</span>
                     </div>
-                    
-                    {/* Floating elements around each core member - increased size */}
-                    <div className="absolute -top-3 -right-3 w-6 h-6 bg-gradient-to-r from-yellow-400 to-orange-400 rounded-full animate-bounce opacity-70"></div>
-                    <div className="absolute -bottom-3 -left-3 w-5 h-5 bg-gradient-to-r from-pink-400 to-purple-400 rounded-full animate-bounce opacity-70" style={{ animationDelay: '0.3s' }}></div>
+                    <p className="text-sm font-medium text-gray-700">Core Member {index + 1}</p>
                   </div>
-                  
-                  <h4 className="font-bold text-gray-800 text-lg mb-2">{member.name}</h4>
-                  <p className="text-sm text-gray-600 leading-relaxed">{member.description}</p>
-                  
-                  {/* Premium indicator */}
-                  <div className="flex justify-center mt-3">
-                    <div className="w-8 h-1 bg-gradient-to-r from-purple-500 to-orange-500 rounded-full"></div>
-                  </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           </div>
         </div>
