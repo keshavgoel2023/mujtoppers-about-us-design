@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 
@@ -18,11 +17,11 @@ const TeamStructure = () => {
   ];
 
   const coreCommittee = [
-    { name: "Core Member 1", color: "bg-gradient-to-r from-purple-500 to-pink-500", description: "Strategic Excellence" },
-    { name: "Core Member 2", color: "bg-gradient-to-r from-blue-500 to-cyan-500", description: "Innovation Leader" },
-    { name: "Core Member 3", color: "bg-gradient-to-r from-green-500 to-teal-500", description: "Growth Catalyst" },
-    { name: "Core Member 4", color: "bg-gradient-to-r from-orange-500 to-red-500", description: "Vision Architect" },
-    { name: "Core Member 5", color: "bg-gradient-to-r from-indigo-500 to-purple-500", description: "Excellence Driver" }
+    { name: "Aakshara Tomar", color: "bg-gradient-to-r from-purple-500 to-pink-500", description: "Strategic Excellence", image: "/lovable-uploads/aakshara.jpg" },
+    { name: "Ananya Tyagi", color: "bg-gradient-to-r from-blue-500 to-cyan-500", description: "Innovation Leader", image: "/lovable-uploads/ananya.jpg" },
+    { name: "Sahil Lenka", color: "bg-gradient-to-r from-green-500 to-teal-500", description: "Growth Catalyst", image: "/lovable-uploads/sahil jr.jpg" },
+    { name: "Udit Mishra", color: "bg-gradient-to-r from-orange-500 to-red-500", description: "Vision Architect", image: "/lovable-uploads/udit.jpg" },
+    { name: "Vaishak Yadav", color: "bg-gradient-to-r from-indigo-500 to-purple-500", description: "Excellence Driver", image: "/lovable-uploads/vaishak.jpg" }
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -131,14 +130,13 @@ const TeamStructure = () => {
           </div>
         </div>
 
-        {/* Core Committee Section - Redesigned */}
+        {/* Core Committee Section - Updated */}
         <div className="text-center">
           <h3 className="text-3xl font-bold text-gray-800 mb-4">Core Committee</h3>
           <p className="text-lg text-gray-600 mb-12 max-w-2xl mx-auto">
             The driving force behind our success - dedicated leaders shaping the future
           </p>
           
-          {/* Core Committee in a premium layout */}
           <div className="max-w-5xl mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-8">
               {coreCommittee.map((member, index) => (
@@ -148,18 +146,15 @@ const TeamStructure = () => {
                   style={{ animationDelay: `${index * 0.2}s` }}
                 >
                   <div className="relative mb-6">
-                    {/* Increased core member circle size */}
-                    <div className={`w-32 h-32 ${member.color} rounded-full mx-auto shadow-xl group-hover:shadow-2xl transition-all duration-300 flex items-center justify-center`}>
-                      <div className="w-28 h-28 bg-white rounded-full flex items-center justify-center shadow-inner">
-                        <div className="w-24 h-24 bg-gradient-to-br from-gray-200 to-gray-300 rounded-full flex items-center justify-center">
-                          <span className="text-2xl font-bold text-gray-700">
-                            {member.name.split(' ')[2]}
-                          </span>
-                        </div>
-                      </div>
+                    <div className={`w-32 h-32 ${member.color} rounded-full mx-auto shadow-xl group-hover:shadow-2xl transition-all duration-300 flex items-center justify-center overflow-hidden`}>
+                      <img 
+                        src={member.image} 
+                        alt={member.name}
+                        className="w-28 h-28 rounded-full object-cover shadow-inner"
+                      />
                     </div>
                     
-                    {/* Floating elements around each core member - increased size */}
+                    {/* Floating elements around each core member */}
                     <div className="absolute -top-3 -right-3 w-6 h-6 bg-gradient-to-r from-yellow-400 to-orange-400 rounded-full animate-bounce opacity-70"></div>
                     <div className="absolute -bottom-3 -left-3 w-5 h-5 bg-gradient-to-r from-pink-400 to-purple-400 rounded-full animate-bounce opacity-70" style={{ animationDelay: '0.3s' }}></div>
                   </div>
