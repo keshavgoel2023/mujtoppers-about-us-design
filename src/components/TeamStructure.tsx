@@ -252,7 +252,7 @@ const TeamStructure = () => {
       </div>
 
       {/* Custom CSS for scale-x animation */}
-      <style jsx>{`
+      <style>{`
         @keyframes scale-x {
           from {
             transform: scaleX(0);
