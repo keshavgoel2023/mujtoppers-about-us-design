@@ -150,7 +150,7 @@ const TeamStructure = () => {
                   style={{ animationDelay: `${index * 0.2}s` }}
                 >
                   <div className="relative mb-6">
-                    <div className={`w-40 h-40 ${member.color} rounded-full mx-auto shadow-xl group-hover:shadow-2xl transition-all duration-300 flex items-center justify-center overflow-hidden animate-pulse`}>
+                    <div className={`w-40 h-40 ${member.color} rounded-full mx-auto shadow-xl group-hover:shadow-2xl transition-all duration-300 flex items-center justify-center overflow-hidden`}>
                       <div className="w-36 h-36 bg-white rounded-full flex items-center justify-center shadow-inner overflow-hidden">
                         <img 
                           src={member.image} 
@@ -183,7 +183,7 @@ const TeamStructure = () => {
                   style={{ animationDelay: `${(index + 3) * 0.2}s` }}
                 >
                   <div className="relative mb-6">
-                    <div className={`w-40 h-40 ${member.color} rounded-full mx-auto shadow-xl group-hover:shadow-2xl transition-all duration-300 flex items-center justify-center overflow-hidden animate-pulse`}>
+                    <div className={`w-40 h-40 ${member.color} rounded-full mx-auto shadow-xl group-hover:shadow-2xl transition-all duration-300 flex items-center justify-center overflow-hidden`}>
                       <div className="w-36 h-36 bg-white rounded-full flex items-center justify-center shadow-inner overflow-hidden">
                         <img 
                           src={member.image} 
@@ -223,7 +223,7 @@ const TeamStructure = () => {
                   <CarouselItem key={member.name}>
                     <div className="flex flex-col items-center justify-center p-4">
                       <div className="relative mb-6">
-                        <div className={`w-48 h-48 ${member.color} rounded-full shadow-xl flex items-center justify-center overflow-hidden animate-pulse transform transition-all duration-700 hover:scale-105`}>
+                        <div className={`w-48 h-48 ${member.color} rounded-full shadow-xl flex items-center justify-center overflow-hidden transform transition-all duration-700 hover:scale-105`}>
                           <div className="w-44 h-44 bg-white rounded-full flex items-center justify-center shadow-inner overflow-hidden">
                             <img 
                               src={member.image} 
