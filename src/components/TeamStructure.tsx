@@ -3,24 +3,24 @@ import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carouse
 
 const TeamStructure = () => {
   const teamData = [
-    { name: "Swatantra Choudhary", level: 1, color: "bg-blue-500", description: "Leading the vision", image: "/lovable-uploads/swatantra bhaiya .png" },
-    { name: "Sahil Moharil", level: 1, color: "bg-orange-500", description: "Treasurer", image: "/lovable-uploads/sahil bhaiya.jpg" },
-    { name: "Chirag Jotwani", level: 2, color: "bg-purple-500", description: "President", image: "/lovable-uploads/chirag.jpg" },
-    { name: "Chandra Panday", level: 2, color: "bg-pink-500", description: "Vice-President", image: "/lovable-uploads/chandra .jpg" },
-    { name: "Vasu Verma", level: 3, color: "bg-green-500", description: "Technical Secretary", image: "/lovable-uploads/vasu bhaiya.jpg" },
+    { name: "Swatantra Choudhary", level: 1, color: "bg-blue-500", description: "Leading the vision", image: "/lovable-uploads/swatantra.png" },
+    { name: "Sahil Moharil", level: 1, color: "bg-orange-500", description: "Driving innovation", image: "/lovable-uploads/sahil.jpg" },
+    { name: "Chirag Jotwani", level: 2, color: "bg-purple-500", description: "Strategic oversight", image: "/lovable-uploads/chirag.jpg" },
+    { name: "Chandra Panday", level: 2, color: "bg-pink-500", description: "Operations lead", image: "/lovable-uploads/chandra.jpg" },
+    { name: "Vasu Verma", level: 3, color: "bg-green-500", description: "Tech coordination", image: "/lovable-uploads/vasu.jpg" },
     { name: "Robin Singh", level: 3, color: "bg-indigo-500", description: "Partnership development", image: "/lovable-uploads/robin.jpg" },
-    { name: "Hardik Bhardwaj", level: 4, color: "bg-red-500", description: "Head of Sponsorship", image: "/lovable-uploads/hardik.jpg" },
-    { name: "Chanchal Agrawal", level: 3, color: "bg-yellow-500", description: "Managing Director", image: "/lovable-uploads/chanchal.jpg" },
-    { name: "Harsh Tyagi", level: 4, color: "bg-teal-500", description: "General Secretary", image: "/lovable-uploads/harsh.jpg" },
+    { name: "Hardik Bhardwaj", level: 3, color: "bg-red-500", description: "Head of Sponsorship", image: "/lovable-uploads/hardik.jpg" },
+    { name: "Chanchal Agrawal", level: 3, color: "bg-yellow-500", description: "Administrative lead", image: "/lovable-uploads/chanchal.jpg" },
+    { name: "Harsh Tyagi", level: 4, color: "bg-teal-500", description: "Creative direction", image: "/lovable-uploads/harsh.jpg" },
     { name: "Shaili Saxena", level: 4, color: "bg-cyan-500", description: "Technical leadership", image: "/lovable-uploads/shaili.jpg" },
     { name: "Keshav Goel", level: 4, color: "bg-rose-500", description: "Operational efficiency", image: "/lovable-uploads/keshav.jpg" },
-    { name: "Abhi Garg", level: 4, color: "bg-violet-500", description: "Operations Head", image: "/lovable-uploads/abhi.jpg" }
+    { name: "Abhi Garg", level: 4, color: "bg-violet-500", description: "Team excellence", image: "/lovable-uploads/abhi.png" }
   ];
 
   const coreCommittee = [
     { name: "Aakshara Tomar", color: "bg-gradient-to-r from-purple-500 to-pink-500", description: "Strategic Excellence", image: "/lovable-uploads/aakshara.jpg" },
     { name: "Ananya Tyagi", color: "bg-gradient-to-r from-blue-500 to-cyan-500", description: "Innovation Leader", image: "/lovable-uploads/ananya.jpg" },
-    { name: "Sahil Lenka", color: "bg-gradient-to-r from-green-500 to-teal-500", description: "Growth Catalyst", image: "/lovable-uploads/sahil jr.jpg" },
+    { name: "Sahil Lenka", color: "bg-gradient-to-r from-green-500 to-teal-500", description: "Growth Catalyst", image: "/lovable-uploads/sahil-jr.jpg" },
     { name: "Udit Mishra", color: "bg-gradient-to-r from-orange-500 to-red-500", description: "Vision Architect", image: "/lovable-uploads/udit.jpg" },
     { name: "Vaishak Yadav", color: "bg-gradient-to-r from-indigo-500 to-purple-500", description: "Excellence Driver", image: "/lovable-uploads/vaishak.jpg" }
   ];
