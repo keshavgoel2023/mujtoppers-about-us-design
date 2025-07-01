@@ -27,7 +27,7 @@ const AboutSection = () => {
               </div>
               <div className="relative">
                 <img 
-                  src="public/lovable-uploads/about_us.png" 
+                  src="/lovable-uploads/about_us.png" 
                   alt="MUJ Toppers Team" 
                   className="rounded-2xl shadow-lg w-full h-64 object-cover"
                 />
