@@ -28,6 +28,7 @@ const TeamStructure = () => {
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [api, setApi] = useState<any>();
+  const [coreApi, setCoreApi] = useState<any>();
 
   // Auto-advance main carousel every 3 seconds
   useEffect(() => {
@@ -132,31 +133,35 @@ const TeamStructure = () => {
           </div>
         </div>
 
-        {/* Core Committee Section - Static Display */}
+        {/* Core Committee Section - Mobile-Friendly Carousel */}
         <div className="text-center">
           <h3 className="text-3xl font-bold text-gray-800 mb-4">Core Committee</h3>
           <p className="text-lg text-gray-600 mb-12 max-w-2xl mx-auto">
             The driving force behind our success - dedicated leaders shaping the future
           </p>
           
-          {/* Static Grid Layout for All Screen Sizes */}
-          <div className="max-w-5xl mx-auto">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8 justify-items-center">
-              {coreCommittee.map((member, index) => (
+          {/* Desktop: Grid Layout */}
+          <div className="hidden md:block max-w-4xl mx-auto">
+            <div className="grid grid-cols-3 gap-8 mb-8">
+              {coreCommittee.slice(0, 3).map((member, index) => (
                 <div 
                   key={member.name}
-                  className="text-center w-full max-w-xs"
+                  className="group text-center transform hover:scale-110 transition-all duration-500"
+                  style={{ animationDelay: `${index * 0.2}s` }}
                 >
                   <div className="relative mb-6">
-                    <div className={`w-32 h-32 sm:w-36 sm:h-36 lg:w-40 lg:h-40 ${member.color} rounded-full mx-auto shadow-xl transition-all duration-300 hover:shadow-2xl flex items-center justify-center overflow-hidden`}>
-                      <div className="w-28 h-28 sm:w-32 sm:h-32 lg:w-36 lg:h-36 bg-white rounded-full flex items-center justify-center shadow-inner overflow-hidden">
+                    <div className={`w-40 h-40 ${member.color} rounded-full mx-auto shadow-xl group-hover:shadow-2xl transition-all duration-300 flex items-center justify-center overflow-hidden`}>
+                      <div className="w-36 h-36 bg-white rounded-full flex items-center justify-center shadow-inner overflow-hidden">
                         <img 
                           src={member.image} 
                           alt={member.name}
-                          className="w-24 h-24 sm:w-28 sm:h-28 lg:w-32 lg:h-32 rounded-full object-cover"
+                          className="w-32 h-32 rounded-full object-cover"
                         />
                       </div>
                     </div>
+                    
+                    <div className="absolute -top-3 -right-3 w-6 h-6 bg-gradient-to-r from-yellow-400 to-orange-400 rounded-full animate-bounce opacity-70"></div>
+                    <div className="absolute -bottom-3 -left-3 w-5 h-5 bg-gradient-to-r from-pink-400 to-purple-400 rounded-full animate-bounce opacity-70" style={{ animationDelay: '0.3s' }}></div>
                   </div>
                   
                   <h4 className="font-bold text-gray-800 text-lg mb-2">{member.name}</h4>
@@ -168,6 +173,81 @@ const TeamStructure = () => {
                 </div>
               ))}
             </div>
+            
+            {/* Bottom row with 2 members centered */}
+            <div className="grid grid-cols-2 gap-8 max-w-lg mx-auto">
+              {coreCommittee.slice(3).map((member, index) => (
+                <div 
+                  key={member.name}
+                  className="group text-center transform hover:scale-110 transition-all duration-500"
+                  style={{ animationDelay: `${(index + 3) * 0.2}s` }}
+                >
+                  <div className="relative mb-6">
+                    <div className={`w-40 h-40 ${member.color} rounded-full mx-auto shadow-xl group-hover:shadow-2xl transition-all duration-300 flex items-center justify-center overflow-hidden`}>
+                      <div className="w-36 h-36 bg-white rounded-full flex items-center justify-center shadow-inner overflow-hidden">
+                        <img 
+                          src={member.image} 
+                          alt={member.name}
+                          className="w-32 h-32 rounded-full object-cover"
+                        />
+                      </div>
+                    </div>
+                    
+                    <div className="absolute -top-3 -right-3 w-6 h-6 bg-gradient-to-r from-yellow-400 to-orange-400 rounded-full animate-bounce opacity-70"></div>
+                    <div className="absolute -bottom-3 -left-3 w-5 h-5 bg-gradient-to-r from-pink-400 to-purple-400 rounded-full animate-bounce opacity-70" style={{ animationDelay: '0.3s' }}></div>
+                  </div>
+                  
+                  <h4 className="font-bold text-gray-800 text-lg mb-2">{member.name}</h4>
+                  <p className="text-sm text-gray-600 leading-relaxed">{member.description}</p>
+                  
+                  <div className="flex justify-center mt-3">
+                    <div className="w-8 h-1 bg-gradient-to-r from-purple-500 to-orange-500 rounded-full"></div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Mobile: Carousel Layout */}
+          <div className="md:hidden max-w-sm mx-auto">
+            <Carousel 
+              setApi={setCoreApi}
+              className="w-full"
+              opts={{
+                align: "center",
+                loop: true,
+              }}
+            >
+              <CarouselContent>
+                {coreCommittee.map((member, index) => (
+                  <CarouselItem key={member.name}>
+                    <div className="flex flex-col items-center justify-center p-4">
+                      <div className="relative mb-6">
+                        <div className={`w-48 h-48 ${member.color} rounded-full shadow-xl flex items-center justify-center overflow-hidden transform transition-all duration-700 hover:scale-105`}>
+                          <div className="w-44 h-44 bg-white rounded-full flex items-center justify-center shadow-inner overflow-hidden">
+                            <img 
+                              src={member.image} 
+                              alt={member.name}
+                              className="w-40 h-40 rounded-full object-cover"
+                            />
+                          </div>
+                        </div>
+                        
+                        <div className="absolute -top-4 -right-4 w-8 h-8 bg-gradient-to-r from-yellow-400 to-orange-400 rounded-full animate-bounce"></div>
+                        <div className="absolute -bottom-4 -left-4 w-6 h-6 bg-gradient-to-r from-pink-400 to-purple-400 rounded-full animate-bounce" style={{ animationDelay: '0.3s' }}></div>
+                      </div>
+                      
+                      <h4 className="font-bold text-gray-800 text-xl mb-2 text-center">{member.name}</h4>
+                      <p className="text-gray-600 text-center leading-relaxed max-w-xs">{member.description}</p>
+                      
+                      <div className="flex justify-center mt-4">
+                        <div className="w-12 h-1 bg-gradient-to-r from-purple-500 to-orange-500 rounded-full"></div>
+                      </div>
+                    </div>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+            </Carousel>
           </div>
         </div>
       </div>
