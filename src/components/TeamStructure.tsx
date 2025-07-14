@@ -29,9 +29,9 @@ const TeamStructure = () => {
     <section className="py-20 bg-gradient-to-br from-purple-50 to-orange-50 relative overflow-hidden">
       {/* Background Decorations */}
       <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-20 left-10 w-96 h-96 border-4 border-purple-300 rounded-full"></div>
-        <div className="absolute bottom-20 right-10 w-80 h-80 border-4 border-orange-300 rounded-full"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 border-4 border-pink-300 rounded-full"></div>
+        <div className="absolute top-20 left-10 w-96 h-96 border-4 border-purple-300 rounded-full animate-pulse"></div>
+        <div className="absolute bottom-20 right-10 w-80 h-80 border-4 border-orange-300 rounded-full animate-pulse" style={{ animationDelay: '1s' }}></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 border-4 border-pink-300 rounded-full animate-pulse" style={{ animationDelay: '2s' }}></div>
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
@@ -42,35 +42,39 @@ const TeamStructure = () => {
           <div className="w-24 h-1 bg-gradient-to-r from-purple-500 to-orange-500 mx-auto rounded-full"></div>
         </div>
 
-        {/* Executive Team - Multi-row Layout */}
+        {/* Executive Team Grid */}
         <div className="max-w-7xl mx-auto mb-20">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-6 md:gap-8">
             {teamData.map((member, index) => (
               <div 
                 key={member.name}
-                className="group text-center"
+                className="group text-center transform hover:scale-105 transition-all duration-300"
               >
-                <div className="relative mb-6">
-                  <div className={`w-40 h-40 ${member.color} rounded-full mx-auto shadow-xl transition-all duration-300 flex items-center justify-center overflow-hidden`}>
-                    <div className="w-36 h-36 bg-white rounded-full flex items-center justify-center shadow-inner overflow-hidden">
+                <div className="relative mb-4">
+                  <div className={`w-32 h-32 sm:w-36 sm:h-36 md:w-40 md:h-40 ${member.color} rounded-full mx-auto shadow-xl group-hover:shadow-2xl transition-all duration-300 flex items-center justify-center overflow-hidden`}>
+                    <div className="w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 bg-white rounded-full flex items-center justify-center shadow-inner overflow-hidden">
                       <img 
                         src={member.image} 
                         alt={member.name}
-                        className="w-32 h-32 rounded-full object-cover"
+                        className="w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 rounded-full object-cover"
                       />
                     </div>
                   </div>
+                  
+                  {/* Floating decorative elements */}
+                  <div className="absolute -top-2 -right-2 w-4 h-4 sm:w-5 sm:h-5 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full animate-bounce opacity-70"></div>
+                  <div className="absolute -bottom-2 -left-2 w-3 h-3 sm:w-4 sm:h-4 bg-gradient-to-r from-orange-400 to-yellow-400 rounded-full animate-bounce opacity-70" style={{ animationDelay: '0.5s' }}></div>
                 </div>
                 
-                <h3 className="text-lg font-bold text-gray-800 mb-2 leading-tight">
+                <h3 className="text-sm sm:text-base md:text-lg font-bold text-gray-800 mb-1 leading-tight">
                   {member.name}
                 </h3>
-                <p className="text-sm text-gray-600 leading-relaxed mb-3">
+                <p className="text-xs sm:text-sm text-gray-600 leading-relaxed px-2">
                   {member.description}
                 </p>
                 
                 {/* Level indicator */}
-                <div className="flex justify-center space-x-1">
+                <div className="flex justify-center space-x-1 mt-2">
                   {Array.from({ length: member.level }).map((_, i) => (
                     <div key={i} className="w-2 h-2 bg-gradient-to-r from-purple-400 to-orange-400 rounded-full"></div>
                   ))}
@@ -87,29 +91,32 @@ const TeamStructure = () => {
             The driving force behind our success - dedicated leaders shaping the future
           </p>
           
-          <div className="max-w-5xl mx-auto">
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 lg:gap-10">
+          <div className="max-w-4xl mx-auto">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 md:gap-8">
               {coreCommittee.map((member, index) => (
                 <div 
                   key={member.name}
-                  className="group text-center"
+                  className="group text-center transform hover:scale-105 transition-all duration-300"
                 >
-                  <div className="relative mb-6">
-                    <div className={`w-36 h-36 ${member.color} rounded-full mx-auto shadow-xl transition-all duration-300 flex items-center justify-center overflow-hidden`}>
-                      <div className="w-32 h-32 bg-white rounded-full flex items-center justify-center shadow-inner overflow-hidden">
+                  <div className="relative mb-4">
+                    <div className={`w-32 h-32 sm:w-36 sm:h-36 md:w-40 md:h-40 ${member.color} rounded-full mx-auto shadow-xl group-hover:shadow-2xl transition-all duration-300 flex items-center justify-center overflow-hidden`}>
+                      <div className="w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 bg-white rounded-full flex items-center justify-center shadow-inner overflow-hidden">
                         <img 
                           src={member.image} 
                           alt={member.name}
-                          className="w-28 h-28 rounded-full object-cover"
+                          className="w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 rounded-full object-cover"
                         />
                       </div>
                     </div>
+                    
+                    <div className="absolute -top-2 -right-2 w-4 h-4 sm:w-5 sm:h-5 bg-gradient-to-r from-yellow-400 to-orange-400 rounded-full animate-bounce opacity-70"></div>
+                    <div className="absolute -bottom-2 -left-2 w-3 h-3 sm:w-4 sm:h-4 bg-gradient-to-r from-pink-400 to-purple-400 rounded-full animate-bounce opacity-70" style={{ animationDelay: '0.3s' }}></div>
                   </div>
                   
-                  <h4 className="font-bold text-gray-800 text-base mb-2 leading-tight">{member.name}</h4>
-                  <p className="text-sm text-gray-600 leading-relaxed">{member.description}</p>
+                  <h4 className="font-bold text-gray-800 text-sm sm:text-base md:text-lg mb-1 leading-tight">{member.name}</h4>
+                  <p className="text-xs sm:text-sm text-gray-600 leading-relaxed px-2">{member.description}</p>
                   
-                  <div className="flex justify-center mt-3">
+                  <div className="flex justify-center mt-2">
                     <div className="w-6 h-1 bg-gradient-to-r from-purple-500 to-orange-500 rounded-full"></div>
                   </div>
                 </div>
