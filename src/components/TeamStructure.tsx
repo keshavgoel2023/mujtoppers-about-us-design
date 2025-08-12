@@ -1,5 +1,6 @@
 
 import { useState, useEffect } from "react";
+import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 
 const TeamStructure = () => {
   const teamData = [
@@ -25,6 +26,29 @@ const TeamStructure = () => {
     { name: "Vaishak Yadav", color: "bg-indigo-500", description: "Excellence Driver", image: "/lovable-uploads/vaishak.jpg" }
   ];
 
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [api, setApi] = useState<any>();
+
+  // Auto-advance main carousel every 3 seconds
+  useEffect(() => {
+    if (!api) return;
+
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => {
+        const next = (prev + 1) % teamData.length;
+        api.scrollTo(next);
+        return next;
+      });
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, [api, teamData.length]);
+
+  const handleDotClick = (index: number) => {
+    setCurrentIndex(index);
+    api?.scrollTo(index);
+  };
+
   return (
     <section className="py-20 bg-gradient-to-br from-purple-50 to-orange-50 relative overflow-hidden">
       {/* Background Decorations */}
@@ -42,82 +66,104 @@ const TeamStructure = () => {
           <div className="w-24 h-1 bg-gradient-to-r from-purple-500 to-orange-500 mx-auto rounded-full"></div>
         </div>
 
-        {/* Executive Team Grid */}
-        <div className="max-w-7xl mx-auto mb-20">
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-6 md:gap-8">
-            {teamData.map((member, index) => (
-              <div 
-                key={member.name}
-                className="group text-center transform hover:scale-105 transition-all duration-300"
-              >
-                <div className="relative mb-4">
-                  <div className={`w-32 h-32 sm:w-36 sm:h-36 md:w-40 md:h-40 ${member.color} rounded-full mx-auto shadow-xl group-hover:shadow-2xl transition-all duration-300 flex items-center justify-center overflow-hidden`}>
-                    <div className="w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 bg-white rounded-full flex items-center justify-center shadow-inner overflow-hidden">
-                      <img 
-                        src={member.image} 
-                        alt={member.name}
-                        className="w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 rounded-full object-cover"
-                      />
+        {/* Hero Team Member Carousel */}
+        <div className="max-w-4xl mx-auto mb-20">
+          <Carousel 
+            setApi={setApi}
+            className="w-full"
+            opts={{
+              align: "start",
+              loop: true,
+            }}
+          >
+            <CarouselContent>
+              {teamData.map((member, index) => (
+                <CarouselItem key={member.name}>
+                  <div className="flex flex-col items-center justify-center p-8">
+                    <div className="relative mb-8">
+                      {/* Large animated circle for featured member */}
+                      <div className={`w-64 h-64 ${member.color} rounded-full shadow-2xl animate-pulse flex items-center justify-center transform transition-all duration-700 hover:scale-105`}>
+                        <div className="w-56 h-56 bg-white rounded-full flex items-center justify-center shadow-inner overflow-hidden">
+                          <img 
+                            src={member.image} 
+                            alt={member.name}
+                            className="w-48 h-48 rounded-full object-cover"
+                          />
+                        </div>
+                      </div>
+                      
+                      {/* Floating decorative elements */}
+                      <div className="absolute -top-6 -right-6 w-12 h-12 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full animate-bounce"></div>
+                      <div className="absolute -bottom-6 -left-6 w-10 h-10 bg-gradient-to-r from-orange-400 to-yellow-400 rounded-full animate-bounce" style={{ animationDelay: '0.5s' }}></div>
+                    </div>
+                    
+                    <h3 className="text-3xl font-bold text-gray-800 mb-2 text-center">
+                      {member.name}
+                    </h3>
+                    <p className="text-lg text-gray-600 text-center max-w-md">
+                      {member.description}
+                    </p>
+                    
+                    {/* Level indicator */}
+                    <div className="flex space-x-1 mt-4">
+                      {Array.from({ length: member.level }).map((_, i) => (
+                        <div key={i} className="w-3 h-3 bg-gradient-to-r from-purple-400 to-orange-400 rounded-full"></div>
+                      ))}
                     </div>
                   </div>
-                  
-                  {/* Floating decorative elements */}
-                  <div className="absolute -top-2 -right-2 w-4 h-4 sm:w-5 sm:h-5 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full animate-bounce opacity-70"></div>
-                  <div className="absolute -bottom-2 -left-2 w-3 h-3 sm:w-4 sm:h-4 bg-gradient-to-r from-orange-400 to-yellow-400 rounded-full animate-bounce opacity-70" style={{ animationDelay: '0.5s' }}></div>
-                </div>
-                
-                <h3 className="text-sm sm:text-base md:text-lg font-bold text-gray-800 mb-1 leading-tight">
-                  {member.name}
-                </h3>
-                <p className="text-xs sm:text-sm text-gray-600 leading-relaxed px-2">
-                  {member.description}
-                </p>
-                
-                {/* Level indicator */}
-                <div className="flex justify-center space-x-1 mt-2">
-                  {Array.from({ length: member.level }).map((_, i) => (
-                    <div key={i} className="w-2 h-2 bg-gradient-to-r from-purple-400 to-orange-400 rounded-full"></div>
-                  ))}
-                </div>
-              </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+          </Carousel>
+
+          {/* Dot indicators */}
+          <div className="flex justify-center space-x-2 mt-8">
+            {teamData.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => handleDotClick(index)}
+                className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                  index === currentIndex
+                    ? 'bg-gradient-to-r from-purple-500 to-orange-500 scale-125'
+                    : 'bg-gray-300 hover:bg-gray-400'
+                }`}
+              />
             ))}
           </div>
         </div>
 
-        {/* Core Committee Section */}
+        {/* Core Committee Section - Static Display */}
         <div className="text-center">
           <h3 className="text-3xl font-bold text-gray-800 mb-4">Core Committee</h3>
           <p className="text-lg text-gray-600 mb-12 max-w-2xl mx-auto">
             The driving force behind our success - dedicated leaders shaping the future
           </p>
           
-          <div className="max-w-4xl mx-auto">
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 md:gap-8">
+          {/* Static Grid Layout for All Screen Sizes */}
+          <div className="max-w-5xl mx-auto">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8 justify-items-center">
               {coreCommittee.map((member, index) => (
                 <div 
                   key={member.name}
-                  className="group text-center transform hover:scale-105 transition-all duration-300"
+                  className="text-center w-full max-w-xs"
                 >
-                  <div className="relative mb-4">
-                    <div className={`w-32 h-32 sm:w-36 sm:h-36 md:w-40 md:h-40 ${member.color} rounded-full mx-auto shadow-xl group-hover:shadow-2xl transition-all duration-300 flex items-center justify-center overflow-hidden`}>
-                      <div className="w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 bg-white rounded-full flex items-center justify-center shadow-inner overflow-hidden">
+                  <div className="relative mb-6">
+                    <div className={`w-32 h-32 sm:w-36 sm:h-36 lg:w-40 lg:h-40 ${member.color} rounded-full mx-auto shadow-xl transition-all duration-300 hover:shadow-2xl flex items-center justify-center overflow-hidden`}>
+                      <div className="w-28 h-28 sm:w-32 sm:h-32 lg:w-36 lg:h-36 bg-white rounded-full flex items-center justify-center shadow-inner overflow-hidden">
                         <img 
                           src={member.image} 
                           alt={member.name}
-                          className="w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 rounded-full object-cover"
+                          className="w-24 h-24 sm:w-28 sm:h-28 lg:w-32 lg:h-32 rounded-full object-cover"
                         />
                       </div>
                     </div>
-                    
-                    <div className="absolute -top-2 -right-2 w-4 h-4 sm:w-5 sm:h-5 bg-gradient-to-r from-yellow-400 to-orange-400 rounded-full animate-bounce opacity-70"></div>
-                    <div className="absolute -bottom-2 -left-2 w-3 h-3 sm:w-4 sm:h-4 bg-gradient-to-r from-pink-400 to-purple-400 rounded-full animate-bounce opacity-70" style={{ animationDelay: '0.3s' }}></div>
                   </div>
                   
-                  <h4 className="font-bold text-gray-800 text-sm sm:text-base md:text-lg mb-1 leading-tight">{member.name}</h4>
-                  <p className="text-xs sm:text-sm text-gray-600 leading-relaxed px-2">{member.description}</p>
+                  <h4 className="font-bold text-gray-800 text-lg mb-2">{member.name}</h4>
+                  <p className="text-sm text-gray-600 leading-relaxed">{member.description}</p>
                   
-                  <div className="flex justify-center mt-2">
-                    <div className="w-6 h-1 bg-gradient-to-r from-purple-500 to-orange-500 rounded-full"></div>
+                  <div className="flex justify-center mt-3">
+                    <div className="w-8 h-1 bg-gradient-to-r from-purple-500 to-orange-500 rounded-full"></div>
                   </div>
                 </div>
               ))}
