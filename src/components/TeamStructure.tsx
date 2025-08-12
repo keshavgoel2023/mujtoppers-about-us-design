@@ -64,7 +64,7 @@ const TeamStructure = () => {
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 border-4 border-pink-300 rounded-full animate-pulse" style={{ animationDelay: '2s' }}></div>
       </div>
 
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-4 text-gray-800">
             "Meet the Brains Behind the Madness"
@@ -73,17 +73,17 @@ const TeamStructure = () => {
         </div>
 
         {/* Founders Section - Side by Side */}
-        <div className="max-w-4xl mx-auto mb-16">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-12">
+        <div className="max-w-5xl mx-auto mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 mb-12">
             {founders.map((founder, index) => (
               <div key={founder.name} className="text-center">
                 <div className="relative mb-6">
-                  <div className={`w-48 h-48 ${founder.color} rounded-full shadow-2xl flex items-center justify-center transform transition-all duration-300 hover:scale-105 mx-auto`}>
-                    <div className="w-40 h-40 bg-white rounded-full flex items-center justify-center shadow-inner overflow-hidden">
+                  <div className={`w-40 h-40 sm:w-44 sm:h-44 md:w-48 md:h-48 ${founder.color} rounded-full shadow-2xl flex items-center justify-center transform transition-all duration-300 hover:scale-105 mx-auto`}>
+                    <div className="w-32 h-32 sm:w-36 sm:h-36 md:w-40 md:h-40 bg-white rounded-full flex items-center justify-center shadow-inner overflow-hidden">
                       <img 
                         src={founder.image} 
                         alt={founder.name}
-                        className="w-36 h-36 rounded-full object-cover"
+                        className="w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 rounded-full object-cover"
                       />
                     </div>
                   </div>
@@ -94,10 +94,10 @@ const TeamStructure = () => {
                   </div>
                 </div>
                 
-                <h3 className="text-2xl font-bold text-gray-800 mb-2">
+                <h3 className="text-xl sm:text-2xl font-bold text-gray-800 mb-2">
                   {founder.name}
                 </h3>
-                <p className="text-gray-600">
+                <p className="text-sm sm:text-base text-gray-600 px-4">
                   {founder.description}
                 </p>
               </div>
@@ -121,7 +121,7 @@ const TeamStructure = () => {
         </div>
 
         {/* Team Members Carousel */}
-        <div className="max-w-4xl mx-auto mb-20">
+        <div className="max-w-4xl mx-auto mb-16 md:mb-20">
           <Carousel 
             setApi={setApi}
             className="w-full"
@@ -133,34 +133,34 @@ const TeamStructure = () => {
             <CarouselContent>
               {teamData.map((member, index) => (
                 <CarouselItem key={member.name}>
-                  <div className="flex flex-col items-center justify-center p-8">
-                    <div className="relative mb-8">
-                      <div className={`w-64 h-64 ${member.color} rounded-full shadow-2xl animate-pulse flex items-center justify-center transform transition-all duration-700 hover:scale-105`}>
-                        <div className="w-56 h-56 bg-white rounded-full flex items-center justify-center shadow-inner overflow-hidden">
+                  <div className="flex flex-col items-center justify-center p-4 sm:p-6 md:p-8">
+                    <div className="relative mb-6 md:mb-8">
+                      <div className={`w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 ${member.color} rounded-full shadow-2xl animate-pulse flex items-center justify-center transform transition-all duration-700 hover:scale-105`}>
+                        <div className="w-40 h-40 sm:w-48 sm:h-48 md:w-56 md:h-56 bg-white rounded-full flex items-center justify-center shadow-inner overflow-hidden">
                           <img 
                             src={member.image} 
                             alt={member.name}
-                            className="w-48 h-48 rounded-full object-cover"
+                            className="w-36 h-36 sm:w-44 sm:h-44 md:w-48 md:h-48 rounded-full object-cover"
                           />
                         </div>
                       </div>
                       
                       {/* Floating decorative elements */}
-                      <div className="absolute -top-6 -right-6 w-12 h-12 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full animate-bounce"></div>
-                      <div className="absolute -bottom-6 -left-6 w-10 h-10 bg-gradient-to-r from-orange-400 to-yellow-400 rounded-full animate-bounce" style={{ animationDelay: '0.5s' }}></div>
+                      <div className="absolute -top-4 -right-4 sm:-top-6 sm:-right-6 w-8 h-8 sm:w-12 sm:h-12 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full animate-bounce"></div>
+                      <div className="absolute -bottom-4 -left-4 sm:-bottom-6 sm:-left-6 w-6 h-6 sm:w-10 sm:h-10 bg-gradient-to-r from-orange-400 to-yellow-400 rounded-full animate-bounce" style={{ animationDelay: '0.5s' }}></div>
                     </div>
                     
-                    <h3 className="text-3xl font-bold text-gray-800 mb-2 text-center">
+                    <h3 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-2 text-center px-4">
                       {member.name}
                     </h3>
-                    <p className="text-lg text-gray-600 text-center max-w-md">
+                    <p className="text-base sm:text-lg text-gray-600 text-center max-w-md px-4">
                       {member.description}
                     </p>
                     
                     {/* Level indicator */}
                     <div className="flex space-x-1 mt-4">
                       {Array.from({ length: member.level }).map((_, i) => (
-                        <div key={i} className="w-3 h-3 bg-gradient-to-r from-purple-400 to-orange-400 rounded-full"></div>
+                        <div key={i} className="w-2.5 h-2.5 sm:w-3 sm:h-3 bg-gradient-to-r from-purple-400 to-orange-400 rounded-full"></div>
                       ))}
                     </div>
                   </div>
@@ -187,69 +187,69 @@ const TeamStructure = () => {
 
         {/* Core Committee Section - Organized Layout */}
         <div className="text-center">
-          <h3 className="text-3xl font-bold text-gray-800 mb-4">Core Committee</h3>
-          <p className="text-lg text-gray-600 mb-12 max-w-2xl mx-auto">
+          <h3 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-4">Core Committee</h3>
+          <p className="text-base sm:text-lg text-gray-600 mb-8 sm:mb-12 max-w-2xl mx-auto px-4">
             The driving force behind our success - dedicated leaders shaping the future
           </p>
           
           {/* Organized Grid Layout */}
-          <div className="max-w-6xl mx-auto">
-            {/* First row - 3 members centered */}
-            <div className="flex justify-center mb-12">
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-4xl">
+          <div className="max-w-6xl mx-auto px-4">
+            {/* First row - 3 members */}
+            <div className="flex justify-center mb-8 sm:mb-12">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 max-w-4xl">
                 {coreCommittee.slice(0, 3).map((member, index) => (
                   <div 
                     key={member.name}
                     className="text-center"
                   >
-                    <div className="relative mb-6">
-                      <div className={`w-36 h-36 ${member.color} rounded-full mx-auto shadow-xl transition-all duration-300 hover:shadow-2xl flex items-center justify-center overflow-hidden`}>
-                        <div className="w-32 h-32 bg-white rounded-full flex items-center justify-center shadow-inner overflow-hidden">
+                    <div className="relative mb-4 sm:mb-6">
+                      <div className={`w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 ${member.color} rounded-full mx-auto shadow-xl transition-all duration-300 hover:shadow-2xl flex items-center justify-center overflow-hidden`}>
+                        <div className="w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 bg-white rounded-full flex items-center justify-center shadow-inner overflow-hidden">
                           <img 
                             src={member.image} 
                             alt={member.name}
-                            className="w-28 h-28 rounded-full object-cover"
+                            className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 rounded-full object-cover"
                           />
                         </div>
                       </div>
                     </div>
                     
-                    <h4 className="font-bold text-gray-800 text-lg mb-2">{member.name}</h4>
-                    <p className="text-sm text-gray-600 leading-relaxed">{member.description}</p>
+                    <h4 className="font-bold text-gray-800 text-base sm:text-lg mb-2 px-2">{member.name}</h4>
+                    <p className="text-xs sm:text-sm text-gray-600 leading-relaxed px-2">{member.description}</p>
                     
                     <div className="flex justify-center mt-3">
-                      <div className="w-8 h-1 bg-gradient-to-r from-purple-500 to-orange-500 rounded-full"></div>
+                      <div className="w-6 sm:w-8 h-1 bg-gradient-to-r from-purple-500 to-orange-500 rounded-full"></div>
                     </div>
                   </div>
                 ))}
               </div>
             </div>
             
-            {/* Second row - 2 members centered */}
+            {/* Second row - 2 members */}
             <div className="flex justify-center">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-12 max-w-2xl">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 sm:gap-12 max-w-2xl">
                 {coreCommittee.slice(3, 5).map((member, index) => (
                   <div 
                     key={member.name}
                     className="text-center"
                   >
-                    <div className="relative mb-6">
-                      <div className={`w-36 h-36 ${member.color} rounded-full mx-auto shadow-xl transition-all duration-300 hover:shadow-2xl flex items-center justify-center overflow-hidden`}>
-                        <div className="w-32 h-32 bg-white rounded-full flex items-center justify-center shadow-inner overflow-hidden">
+                    <div className="relative mb-4 sm:mb-6">
+                      <div className={`w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 ${member.color} rounded-full mx-auto shadow-xl transition-all duration-300 hover:shadow-2xl flex items-center justify-center overflow-hidden`}>
+                        <div className="w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 bg-white rounded-full flex items-center justify-center shadow-inner overflow-hidden">
                           <img 
                             src={member.image} 
                             alt={member.name}
-                            className="w-28 h-28 rounded-full object-cover"
+                            className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 rounded-full object-cover"
                           />
                         </div>
                       </div>
                     </div>
                     
-                    <h4 className="font-bold text-gray-800 text-lg mb-2">{member.name}</h4>
-                    <p className="text-sm text-gray-600 leading-relaxed">{member.description}</p>
+                    <h4 className="font-bold text-gray-800 text-base sm:text-lg mb-2 px-2">{member.name}</h4>
+                    <p className="text-xs sm:text-sm text-gray-600 leading-relaxed px-2">{member.description}</p>
                     
                     <div className="flex justify-center mt-3">
-                      <div className="w-8 h-1 bg-gradient-to-r from-purple-500 to-orange-500 rounded-full"></div>
+                      <div className="w-6 sm:w-8 h-1 bg-gradient-to-r from-purple-500 to-orange-500 rounded-full"></div>
                     </div>
                   </div>
                 ))}
