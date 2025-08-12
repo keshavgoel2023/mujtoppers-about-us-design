@@ -1,4 +1,6 @@
 
+import { useState, useEffect } from "react";
+import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 
 const TeamStructure = () => {
   // Founders - displayed at top
@@ -28,6 +30,29 @@ const TeamStructure = () => {
     { name: "Udit Mishra", color: "bg-orange-500", description: "Vision Architect", image: "/lovable-uploads/udit.jpg" },
     { name: "Vaishak Yadav", color: "bg-indigo-500", description: "Excellence Driver", image: "/lovable-uploads/vaishak.jpg" }
   ];
+
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [api, setApi] = useState<any>();
+
+  // Auto-advance carousel every 3 seconds
+  useEffect(() => {
+    if (!api) return;
+
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => {
+        const next = (prev + 1) % teamData.length;
+        api.scrollTo(next);
+        return next;
+      });
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, [api, teamData.length]);
+
+  const handleDotClick = (index: number) => {
+    setCurrentIndex(index);
+    api?.scrollTo(index);
+  };
 
 
   return (
@@ -95,33 +120,67 @@ const TeamStructure = () => {
           </div>
         </div>
 
-        {/* Team Grid */}
-        <div className="max-w-6xl mx-auto mb-20">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {teamData.map((member, index) => (
-              <div key={member.name} className="text-center">
-                <div className="relative mb-6">
-                  <div className={`w-32 h-32 ${member.color} rounded-full mx-auto shadow-xl transition-all duration-300 hover:shadow-2xl flex items-center justify-center overflow-hidden`}>
-                    <div className="w-28 h-28 bg-white rounded-full flex items-center justify-center shadow-inner overflow-hidden">
-                      <img 
-                        src={member.image} 
-                        alt={member.name}
-                        className="w-24 h-24 rounded-full object-cover"
-                      />
+        {/* Team Members Carousel */}
+        <div className="max-w-4xl mx-auto mb-20">
+          <Carousel 
+            setApi={setApi}
+            className="w-full"
+            opts={{
+              align: "start",
+              loop: true,
+            }}
+          >
+            <CarouselContent>
+              {teamData.map((member, index) => (
+                <CarouselItem key={member.name}>
+                  <div className="flex flex-col items-center justify-center p-8">
+                    <div className="relative mb-8">
+                      <div className={`w-64 h-64 ${member.color} rounded-full shadow-2xl animate-pulse flex items-center justify-center transform transition-all duration-700 hover:scale-105`}>
+                        <div className="w-56 h-56 bg-white rounded-full flex items-center justify-center shadow-inner overflow-hidden">
+                          <img 
+                            src={member.image} 
+                            alt={member.name}
+                            className="w-48 h-48 rounded-full object-cover"
+                          />
+                        </div>
+                      </div>
+                      
+                      {/* Floating decorative elements */}
+                      <div className="absolute -top-6 -right-6 w-12 h-12 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full animate-bounce"></div>
+                      <div className="absolute -bottom-6 -left-6 w-10 h-10 bg-gradient-to-r from-orange-400 to-yellow-400 rounded-full animate-bounce" style={{ animationDelay: '0.5s' }}></div>
+                    </div>
+                    
+                    <h3 className="text-3xl font-bold text-gray-800 mb-2 text-center">
+                      {member.name}
+                    </h3>
+                    <p className="text-lg text-gray-600 text-center max-w-md">
+                      {member.description}
+                    </p>
+                    
+                    {/* Level indicator */}
+                    <div className="flex space-x-1 mt-4">
+                      {Array.from({ length: member.level }).map((_, i) => (
+                        <div key={i} className="w-3 h-3 bg-gradient-to-r from-purple-400 to-orange-400 rounded-full"></div>
+                      ))}
                     </div>
                   </div>
-                </div>
-                
-                <h4 className="font-bold text-gray-800 text-lg mb-2">{member.name}</h4>
-                <p className="text-sm text-gray-600 leading-relaxed">{member.description}</p>
-                
-                {/* Level indicator */}
-                <div className="flex justify-center space-x-1 mt-3">
-                  {Array.from({ length: member.level }).map((_, i) => (
-                    <div key={i} className="w-2 h-2 bg-gradient-to-r from-purple-400 to-orange-400 rounded-full"></div>
-                  ))}
-                </div>
-              </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+          </Carousel>
+
+          {/* Dot indicators */}
+          <div className="flex justify-center space-x-2 mt-8">
+            {teamData.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => handleDotClick(index)}
+                className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                  index === currentIndex
+                    ? 'bg-gradient-to-r from-purple-500 to-orange-500 scale-125'
+                    : 'bg-gray-300 hover:bg-gray-400'
+                }`}
+              />
             ))}
           </div>
         </div>
