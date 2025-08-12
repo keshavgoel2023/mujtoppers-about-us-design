@@ -72,13 +72,13 @@ const TeamStructure = () => {
           <div className="w-24 h-1 bg-gradient-to-r from-purple-500 to-orange-500 mx-auto rounded-full"></div>
         </div>
 
-        {/* Founders Section */}
-        <div className="max-w-6xl mx-auto mb-16">
-          <div className="flex flex-col lg:flex-row justify-center items-center gap-8 lg:gap-16 mb-12">
+        {/* Founders Section - Side by Side */}
+        <div className="max-w-4xl mx-auto mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-12">
             {founders.map((founder, index) => (
               <div key={founder.name} className="text-center">
                 <div className="relative mb-6">
-                  <div className={`w-48 h-48 ${founder.color} rounded-full shadow-2xl flex items-center justify-center transform transition-all duration-300 hover:scale-105`}>
+                  <div className={`w-48 h-48 ${founder.color} rounded-full shadow-2xl flex items-center justify-center transform transition-all duration-300 hover:scale-105 mx-auto`}>
                     <div className="w-40 h-40 bg-white rounded-full flex items-center justify-center shadow-inner overflow-hidden">
                       <img 
                         src={founder.image} 
@@ -89,7 +89,7 @@ const TeamStructure = () => {
                   </div>
                   
                   {/* Founder badge */}
-                  <div className="absolute -top-2 -right-2 bg-gradient-to-r from-purple-500 to-orange-500 text-white text-xs px-3 py-1 rounded-full font-bold">
+                  <div className="absolute -top-2 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-purple-500 to-orange-500 text-white text-xs px-3 py-1 rounded-full font-bold">
                     FOUNDER
                   </div>
                 </div>
@@ -185,41 +185,75 @@ const TeamStructure = () => {
           </div>
         </div>
 
-        {/* Core Committee Section - Static Display */}
+        {/* Core Committee Section - Organized Layout */}
         <div className="text-center">
           <h3 className="text-3xl font-bold text-gray-800 mb-4">Core Committee</h3>
           <p className="text-lg text-gray-600 mb-12 max-w-2xl mx-auto">
             The driving force behind our success - dedicated leaders shaping the future
           </p>
           
-          {/* Static Grid Layout for All Screen Sizes */}
-          <div className="max-w-5xl mx-auto">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8 justify-items-center">
-              {coreCommittee.map((member, index) => (
-                <div 
-                  key={member.name}
-                  className="text-center w-full max-w-xs"
-                >
-                  <div className="relative mb-6">
-                    <div className={`w-32 h-32 sm:w-36 sm:h-36 lg:w-40 lg:h-40 ${member.color} rounded-full mx-auto shadow-xl transition-all duration-300 hover:shadow-2xl flex items-center justify-center overflow-hidden`}>
-                      <div className="w-28 h-28 sm:w-32 sm:h-32 lg:w-36 lg:h-36 bg-white rounded-full flex items-center justify-center shadow-inner overflow-hidden">
-                        <img 
-                          src={member.image} 
-                          alt={member.name}
-                          className="w-24 h-24 sm:w-28 sm:h-28 lg:w-32 lg:h-32 rounded-full object-cover"
-                        />
+          {/* Organized Grid Layout */}
+          <div className="max-w-6xl mx-auto">
+            {/* First row - 3 members centered */}
+            <div className="flex justify-center mb-12">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-4xl">
+                {coreCommittee.slice(0, 3).map((member, index) => (
+                  <div 
+                    key={member.name}
+                    className="text-center"
+                  >
+                    <div className="relative mb-6">
+                      <div className={`w-36 h-36 ${member.color} rounded-full mx-auto shadow-xl transition-all duration-300 hover:shadow-2xl flex items-center justify-center overflow-hidden`}>
+                        <div className="w-32 h-32 bg-white rounded-full flex items-center justify-center shadow-inner overflow-hidden">
+                          <img 
+                            src={member.image} 
+                            alt={member.name}
+                            className="w-28 h-28 rounded-full object-cover"
+                          />
+                        </div>
                       </div>
                     </div>
+                    
+                    <h4 className="font-bold text-gray-800 text-lg mb-2">{member.name}</h4>
+                    <p className="text-sm text-gray-600 leading-relaxed">{member.description}</p>
+                    
+                    <div className="flex justify-center mt-3">
+                      <div className="w-8 h-1 bg-gradient-to-r from-purple-500 to-orange-500 rounded-full"></div>
+                    </div>
                   </div>
-                  
-                  <h4 className="font-bold text-gray-800 text-lg mb-2">{member.name}</h4>
-                  <p className="text-sm text-gray-600 leading-relaxed">{member.description}</p>
-                  
-                  <div className="flex justify-center mt-3">
-                    <div className="w-8 h-1 bg-gradient-to-r from-purple-500 to-orange-500 rounded-full"></div>
+                ))}
+              </div>
+            </div>
+            
+            {/* Second row - 2 members centered */}
+            <div className="flex justify-center">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-12 max-w-2xl">
+                {coreCommittee.slice(3, 5).map((member, index) => (
+                  <div 
+                    key={member.name}
+                    className="text-center"
+                  >
+                    <div className="relative mb-6">
+                      <div className={`w-36 h-36 ${member.color} rounded-full mx-auto shadow-xl transition-all duration-300 hover:shadow-2xl flex items-center justify-center overflow-hidden`}>
+                        <div className="w-32 h-32 bg-white rounded-full flex items-center justify-center shadow-inner overflow-hidden">
+                          <img 
+                            src={member.image} 
+                            alt={member.name}
+                            className="w-28 h-28 rounded-full object-cover"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <h4 className="font-bold text-gray-800 text-lg mb-2">{member.name}</h4>
+                    <p className="text-sm text-gray-600 leading-relaxed">{member.description}</p>
+                    
+                    <div className="flex justify-center mt-3">
+                      <div className="w-8 h-1 bg-gradient-to-r from-purple-500 to-orange-500 rounded-full"></div>
+                    </div>
                   </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           </div>
         </div>
