@@ -142,7 +142,7 @@ const ContactSection = () => {
                   </a>
                   
                   <a
-                    href="https://wa.me/+919876543210"
+                    href="https://chat.whatsapp.com/EU9X6uJp8skIqRE1loeSDq?mode=ac_t"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center justify-center w-12 h-12 bg-gradient-to-r from-green-500 to-green-600 rounded-full text-white hover:scale-110 transition-all duration-300 shadow-lg hover:shadow-xl"
