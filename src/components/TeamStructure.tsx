@@ -140,68 +140,123 @@ const TeamStructure = () => {
           </div>
         </div>
 
-        {/* Team Members Carousel */}
-        <div className="max-w-4xl mx-auto mb-16 md:mb-20">
-          <Carousel 
-            setApi={setApi}
-            className="w-full"
-            opts={{
-              align: "start",
-              loop: true,
-            }}
-          >
-            <CarouselContent>
-              {teamData.map((member, index) => (
-                <CarouselItem key={member.name}>
-                  <div className="flex flex-col items-center justify-center p-4 sm:p-6 md:p-8">
-                    <div className="relative mb-6 md:mb-8">
-                      <div className={`w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 ${member.color} rounded-full shadow-2xl animate-pulse flex items-center justify-center transform transition-all duration-700 hover:scale-105`}>
-                        <div className="w-40 h-40 sm:w-48 sm:h-48 md:w-56 md:h-56 bg-white rounded-full flex items-center justify-center shadow-inner overflow-hidden">
-                          <img 
-                            src={member.image} 
-                            alt={member.name}
-                            className="w-36 h-36 sm:w-44 sm:h-44 md:w-48 md:h-48 rounded-full object-cover"
-                          />
-                        </div>
-                      </div>
-                      
-                      {/* Floating decorative elements */}
-                      <div className="absolute -top-4 -right-4 sm:-top-6 sm:-right-6 w-8 h-8 sm:w-12 sm:h-12 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full animate-bounce"></div>
-                      <div className="absolute -bottom-4 -left-4 sm:-bottom-6 sm:-left-6 w-6 h-6 sm:w-10 sm:h-10 bg-gradient-to-r from-orange-400 to-yellow-400 rounded-full animate-bounce" style={{ animationDelay: '0.5s' }}></div>
+        {/* Executive Team Section */}
+        <div className="max-w-6xl mx-auto mb-16 md:mb-20">
+          <div className="text-center mb-12">
+            <h3 className="text-3xl sm:text-4xl font-bold text-gray-800 mb-4">Meet the Executives</h3>
+            <div className="w-24 h-1 bg-gradient-to-r from-purple-500 to-orange-500 mx-auto rounded-full"></div>
+          </div>
+
+          {/* Desktop Grid Layout */}
+          <div className="hidden md:block">
+            <div className="grid grid-cols-2 lg:grid-cols-5 gap-8 mb-8">
+              {teamData.slice(0, 5).map((member, index) => (
+                <div key={member.name} className="text-center">
+                  <div className="relative mb-4">
+                    <div className="w-32 h-32 lg:w-36 lg:h-36 mx-auto rounded-full overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
+                      <img 
+                        src={member.image} 
+                        alt={member.name}
+                        className="w-full h-full object-cover"
+                      />
                     </div>
-                    
-                    <h3 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-2 text-center px-4">
-                      {member.name}
-                    </h3>
-                    <p className="text-base sm:text-lg text-gray-600 text-center max-w-md px-4">
-                      {member.description}
-                    </p>
-                    
-                    {/* Level indicator */}
-                    <div className="flex space-x-1 mt-4">
-                      {Array.from({ length: member.level }).map((_, i) => (
-                        <div key={i} className="w-2.5 h-2.5 sm:w-3 sm:h-3 bg-gradient-to-r from-purple-400 to-orange-400 rounded-full"></div>
-                      ))}
+                    <div className="absolute -bottom-2 -right-2 w-8 h-8 bg-gradient-to-r from-orange-400 to-orange-500 rounded-full flex items-center justify-center">
+                      <div className="w-6 h-6 bg-white rounded-full"></div>
                     </div>
                   </div>
-                </CarouselItem>
+                  
+                  <h4 className="font-bold text-gray-800 text-lg mb-1">{member.name}</h4>
+                  <p className="text-sm text-gray-600 uppercase tracking-wide">{member.description}</p>
+                </div>
               ))}
-            </CarouselContent>
-          </Carousel>
+            </div>
+            
+            <div className="grid grid-cols-2 lg:grid-cols-5 gap-8 justify-center">
+              {teamData.slice(5, 10).map((member, index) => (
+                <div key={member.name} className="text-center">
+                  <div className="relative mb-4">
+                    <div className="w-32 h-32 lg:w-36 lg:h-36 mx-auto rounded-full overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
+                      <img 
+                        src={member.image} 
+                        alt={member.name}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <div className="absolute -bottom-2 -right-2 w-8 h-8 bg-gradient-to-r from-orange-400 to-orange-500 rounded-full flex items-center justify-center">
+                      <div className="w-6 h-6 bg-white rounded-full"></div>
+                    </div>
+                  </div>
+                  
+                  <h4 className="font-bold text-gray-800 text-lg mb-1">{member.name}</h4>
+                  <p className="text-sm text-gray-600 uppercase tracking-wide">{member.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
 
-          {/* Dot indicators */}
-          <div className="flex justify-center space-x-2 mt-8">
-            {teamData.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => handleDotClick(index)}
-                className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                  index === currentIndex
-                    ? 'bg-gradient-to-r from-purple-500 to-orange-500 scale-125'
-                    : 'bg-gray-300 hover:bg-gray-400'
-                }`}
-              />
-            ))}
+          {/* Mobile Carousel */}
+          <div className="md:hidden">
+            <Carousel 
+              setApi={setApi}
+              className="w-full"
+              opts={{
+                align: "start",
+                loop: true,
+              }}
+            >
+              <CarouselContent>
+                {teamData.map((member, index) => (
+                  <CarouselItem key={member.name}>
+                    <div className="flex flex-col items-center justify-center p-4 sm:p-6">
+                      <div className="relative mb-6">
+                        <div className={`w-48 h-48 sm:w-56 sm:h-56 ${member.color} rounded-full shadow-2xl animate-pulse flex items-center justify-center transform transition-all duration-700 hover:scale-105`}>
+                          <div className="w-40 h-40 sm:w-48 sm:h-48 bg-white rounded-full flex items-center justify-center shadow-inner overflow-hidden">
+                            <img 
+                              src={member.image} 
+                              alt={member.name}
+                              className="w-36 h-36 sm:w-44 sm:h-44 rounded-full object-cover"
+                            />
+                          </div>
+                        </div>
+                        
+                        {/* Floating decorative elements */}
+                        <div className="absolute -top-4 -right-4 sm:-top-6 sm:-right-6 w-8 h-8 sm:w-12 sm:h-12 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full animate-bounce"></div>
+                        <div className="absolute -bottom-4 -left-4 sm:-bottom-6 sm:-left-6 w-6 h-6 sm:w-10 sm:h-10 bg-gradient-to-r from-orange-400 to-yellow-400 rounded-full animate-bounce" style={{ animationDelay: '0.5s' }}></div>
+                      </div>
+                      
+                      <h3 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-2 text-center px-4">
+                        {member.name}
+                      </h3>
+                      <p className="text-base sm:text-lg text-gray-600 text-center max-w-md px-4">
+                        {member.description}
+                      </p>
+                      
+                      {/* Level indicator */}
+                      <div className="flex space-x-1 mt-4">
+                        {Array.from({ length: member.level }).map((_, i) => (
+                          <div key={i} className="w-2.5 h-2.5 sm:w-3 sm:h-3 bg-gradient-to-r from-purple-400 to-orange-400 rounded-full"></div>
+                        ))}
+                      </div>
+                    </div>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+            </Carousel>
+
+            {/* Dot indicators for mobile */}
+            <div className="flex justify-center space-x-2 mt-8">
+              {teamData.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => handleDotClick(index)}
+                  className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                    index === currentIndex
+                      ? 'bg-gradient-to-r from-purple-500 to-orange-500 scale-125'
+                      : 'bg-gray-300 hover:bg-gray-400'
+                  }`}
+                />
+              ))}
+            </div>
           </div>
         </div>
 
