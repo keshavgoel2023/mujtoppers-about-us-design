@@ -6,9 +6,9 @@ import { Linkedin, Mail } from "lucide-react";
 const TeamStructure = () => {
   // Founders - displayed at top
   const founders = [
-    { name: "Swatantra Choudhary", role: "Founder", description: "Leading the vision with strategic innovation and driving the future of our organization", image: "/lovable-uploads/swatantra.png" },
-    { name: "Sahil Moharil", role: "Founder", description: "Driving innovation through creative solutions and fostering a culture of excellence", image: "/lovable-uploads/sahil.jpg" },
-    { name: "Dr. Chandrapal Dangi", role: "Mentor", description: "Guiding our journey with wisdom, experience and strategic insights for sustainable growth", image: "/lovable-uploads/chandrapal.png" }
+    { name: "Swatantra Choudhary", role: "Founder", description: "Leading the vision with strategic innovation and driving the future of our organization", image: "/lovable-uploads/swatantra.png", linkedin: "https://www.linkedin.com/in/swatantra-choudhary-b1139321a/" },
+    { name: "Sahil Moharil", role: "Founder", description: "Driving innovation through creative solutions and fostering a culture of excellence", image: "/lovable-uploads/sahil.jpg", linkedin: "https://www.linkedin.com/in/sahil-moharil/" },
+    { name: "Dr. Chandrapal Dangi", role: "Mentor", description: "Guiding our journey with wisdom, experience and strategic insights for sustainable growth", image: "/lovable-uploads/chandrapal.png", linkedin: "https://www.linkedin.com/in/chandrapal-singh-dangi-4a226134/?originalSubdomain=in" }
   ];
 
   // Rest of the team members
@@ -149,9 +149,14 @@ const TeamStructure = () => {
                 
                 {/* Social Icons */}
                 <div className="flex justify-center space-x-3 relative z-10">
-                  <div className="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center hover:bg-blue-100 transition-colors cursor-pointer">
+                  <a 
+                    href={founder.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center hover:bg-blue-100 transition-colors cursor-pointer"
+                  >
                     <Linkedin className="w-4 h-4 text-blue-600" />
-                  </div>
+                  </a>
                   <div className="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center hover:bg-orange-100 transition-colors cursor-pointer">
                     <Mail className="w-4 h-4 text-orange-600" />
                   </div>
