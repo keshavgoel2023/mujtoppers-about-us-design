@@ -15,7 +15,16 @@ const ContactSection = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    toast.success("Message sent successfully! We'll get back to you soon.");
+    
+    // Create mailto link with form data
+    const subject = encodeURIComponent(`Message from ${formData.name}`);
+    const body = encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`);
+    const mailtoLink = `mailto:mujtoppers@gmail.com?subject=${subject}&body=${body}`;
+    
+    // Open default email client
+    window.location.href = mailtoLink;
+    
+    toast.success("Email client opened! Complete sending your message.");
     setFormData({ name: '', email: '', message: '' });
   };
 
@@ -101,7 +110,7 @@ const ContactSection = () => {
               </form>
             </div>
 
-            {/* Contact Button */}
+            {/* Contact Info */}
             <div className="flex flex-col items-center justify-center h-full">
               <div className="text-center mb-8">
                 <h3 className="text-2xl font-bold text-gray-800 mb-4">Ready to Connect?</h3>
@@ -109,13 +118,6 @@ const ContactSection = () => {
                   Join the MuJToppers community and take your academic journey to the next level.
                 </p>
               </div>
-              
-              <Button
-                size="lg"
-                className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-12 py-4 text-lg rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
-              >
-                CONTACT US
-              </Button>
 
               <div className="mt-8 text-center text-gray-600">
                 <p className="text-sm">Visit us at:</p>

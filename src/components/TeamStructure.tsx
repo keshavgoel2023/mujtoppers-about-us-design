@@ -174,8 +174,12 @@ const TeamStructure = () => {
                         className="w-full h-full object-cover"
                       />
                     </div>
-                    <div className="absolute -bottom-2 -right-2 w-8 h-8 bg-gradient-to-r from-orange-400 to-orange-500 rounded-full flex items-center justify-center">
-                      <div className="w-6 h-6 bg-white rounded-full"></div>
+                    <div className="absolute -bottom-2 -right-2 w-8 h-8 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full flex items-center justify-center">
+                      <img 
+                        src="/lovable-uploads/70930428-30af-42d3-a670-163eed7264cf.png" 
+                        alt="MUJ Logo" 
+                        className="w-6 h-6 rounded-full object-contain"
+                      />
                     </div>
                   </div>
                   
@@ -196,8 +200,12 @@ const TeamStructure = () => {
                         className="w-full h-full object-cover"
                       />
                     </div>
-                    <div className="absolute -bottom-2 -right-2 w-8 h-8 bg-gradient-to-r from-orange-400 to-orange-500 rounded-full flex items-center justify-center">
-                      <div className="w-6 h-6 bg-white rounded-full"></div>
+                    <div className="absolute -bottom-2 -right-2 w-8 h-8 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full flex items-center justify-center">
+                      <img 
+                        src="/lovable-uploads/70930428-30af-42d3-a670-163eed7264cf.png" 
+                        alt="MUJ Logo" 
+                        className="w-6 h-6 rounded-full object-contain"
+                      />
                     </div>
                   </div>
                   
