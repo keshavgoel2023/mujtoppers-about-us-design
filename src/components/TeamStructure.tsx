@@ -8,7 +8,7 @@ const TeamStructure = () => {
   const founders = [
     { name: "Swatantra Choudhary", role: "Founder", description: "Leading the vision with strategic innovation and driving the future of our organization", image: "/lovable-uploads/swatantra.png" },
     { name: "Sahil Moharil", role: "Founder", description: "Driving innovation through creative solutions and fostering a culture of excellence", image: "/lovable-uploads/sahil.jpg" },
-    { name: "Dr. Chandrapal Dangi", role: "Mentor", description: "Guiding our journey with wisdom, experience and strategic insights for sustainable growth", image: "/lovable-uploads/swatantra.png" }
+    { name: "Dr. Chandrapal Dangi", role: "Mentor", description: "Guiding our journey with wisdom, experience and strategic insights for sustainable growth", image: "/lovable-uploads/chandrapal.png" }
   ];
 
   // Rest of the team members
