@@ -34,9 +34,11 @@ const TeamStructure = () => {
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [coreCurrentIndex, setCoreCurrentIndex] = useState(0);
   const [api, setApi] = useState<any>();
+  const [coreApi, setCoreApi] = useState<any>();
 
-  // Auto-advance carousel every 3 seconds
+  // Auto-advance carousel every 3 seconds for executives
   useEffect(() => {
     if (!api) return;
 
@@ -51,9 +53,29 @@ const TeamStructure = () => {
     return () => clearInterval(interval);
   }, [api, teamData.length]);
 
+  // Auto-advance carousel every 3 seconds for core committee
+  useEffect(() => {
+    if (!coreApi) return;
+
+    const interval = setInterval(() => {
+      setCoreCurrentIndex((prev) => {
+        const next = (prev + 1) % coreCommittee.length;
+        coreApi.scrollTo(next);
+        return next;
+      });
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, [coreApi, coreCommittee.length]);
+
   const handleDotClick = (index: number) => {
     setCurrentIndex(index);
     api?.scrollTo(index);
+  };
+
+  const handleCoreDotClick = (index: number) => {
+    setCoreCurrentIndex(index);
+    coreApi?.scrollTo(index);
   };
 
 
@@ -357,6 +379,7 @@ const TeamStructure = () => {
           {/* Mobile Carousel */}
           <div className="md:hidden">
             <Carousel 
+              setApi={setCoreApi}
               className="w-full"
               opts={{
                 align: "start",
@@ -398,6 +421,21 @@ const TeamStructure = () => {
                 ))}
               </CarouselContent>
             </Carousel>
+
+            {/* Dot indicators for mobile */}
+            <div className="flex justify-center space-x-2 mt-8">
+              {coreCommittee.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => handleCoreDotClick(index)}
+                  className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                    index === coreCurrentIndex
+                      ? 'bg-gradient-to-r from-purple-500 to-orange-500 scale-125'
+                      : 'bg-gray-300 hover:bg-gray-400'
+                  }`}
+                />
+              ))}
+            </div>
           </div>
         </div>
       </div>
