@@ -281,8 +281,8 @@ const TeamStructure = () => {
             The driving force behind our success - dedicated leaders shaping the future
           </p>
           
-          {/* Organized Grid Layout */}
-          <div className="max-w-6xl mx-auto px-4">
+          {/* Desktop Grid Layout */}
+          <div className="hidden md:block max-w-6xl mx-auto px-4">
             {/* First row - 3 members */}
             <div className="flex justify-center mb-8 sm:mb-12">
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 max-w-4xl">
@@ -344,6 +344,52 @@ const TeamStructure = () => {
                 ))}
               </div>
             </div>
+          </div>
+
+          {/* Mobile Carousel */}
+          <div className="md:hidden">
+            <Carousel 
+              className="w-full"
+              opts={{
+                align: "start",
+                loop: true,
+              }}
+            >
+              <CarouselContent>
+                {coreCommittee.map((member, index) => (
+                  <CarouselItem key={member.name}>
+                    <div className="flex flex-col items-center justify-center p-4 sm:p-6">
+                      <div className="relative mb-6">
+                        <div className={`w-48 h-48 sm:w-56 sm:h-56 ${member.color} rounded-full shadow-2xl animate-pulse flex items-center justify-center transform transition-all duration-700 hover:scale-105`}>
+                          <div className="w-40 h-40 sm:w-48 sm:h-48 bg-white rounded-full flex items-center justify-center shadow-inner overflow-hidden">
+                            <img 
+                              src={member.image} 
+                              alt={member.name}
+                              className="w-36 h-36 sm:w-44 sm:h-44 rounded-full object-cover"
+                            />
+                          </div>
+                        </div>
+                        
+                        {/* Floating decorative elements */}
+                        <div className="absolute -top-4 -right-4 sm:-top-6 sm:-right-6 w-8 h-8 sm:w-12 sm:h-12 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full animate-bounce"></div>
+                        <div className="absolute -bottom-4 -left-4 sm:-bottom-6 sm:-left-6 w-6 h-6 sm:w-10 sm:h-10 bg-gradient-to-r from-orange-400 to-yellow-400 rounded-full animate-bounce" style={{ animationDelay: '0.5s' }}></div>
+                      </div>
+                      
+                      <h4 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-2 text-center px-4">
+                        {member.name}
+                      </h4>
+                      <p className="text-base sm:text-lg text-gray-600 text-center max-w-md px-4">
+                        {member.description}
+                      </p>
+                      
+                      <div className="flex justify-center mt-4">
+                        <div className="w-16 h-1 bg-gradient-to-r from-purple-500 to-orange-500 rounded-full"></div>
+                      </div>
+                    </div>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+            </Carousel>
           </div>
         </div>
       </div>
