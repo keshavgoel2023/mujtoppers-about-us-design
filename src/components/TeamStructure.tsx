@@ -79,13 +79,26 @@ const TeamStructure = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-12">
             {founders.map((founder, index) => (
               <div key={founder.name} className="bg-white rounded-xl shadow-lg p-6 text-center transform transition-all duration-300 hover:shadow-xl hover:scale-105 relative overflow-hidden">
-                {/* Decorative pattern background */}
-                <div className="absolute inset-0 opacity-5">
-                  <div className="absolute top-4 left-4 w-16 h-16 border-2 border-orange-300 rounded-full"></div>
-                  <div className="absolute top-8 right-6 w-8 h-8 bg-purple-200 rounded-full"></div>
-                  <div className="absolute bottom-6 left-8 w-12 h-12 border border-pink-300 rounded-lg rotate-45"></div>
-                  <div className="absolute bottom-4 right-4 w-6 h-6 bg-orange-200 rounded-full"></div>
-                  <div className="absolute top-16 left-16 w-4 h-4 bg-purple-300 rounded-full"></div>
+                {/* Enhanced decorative pattern background */}
+                <div className="absolute inset-0 opacity-10">
+                  {/* Geometric patterns */}
+                  <div className="absolute top-2 left-2 w-20 h-20 border-2 border-gradient-to-r from-orange-300 to-purple-300 rounded-full animate-pulse"></div>
+                  <div className="absolute top-6 right-4 w-12 h-12 bg-gradient-to-r from-purple-200 to-pink-200 rounded-full"></div>
+                  <div className="absolute bottom-4 left-6 w-16 h-16 border border-gradient-to-r from-pink-300 to-orange-300 rounded-lg rotate-45 animate-pulse" style={{ animationDelay: '1s' }}></div>
+                  <div className="absolute bottom-2 right-2 w-8 h-8 bg-gradient-to-r from-orange-200 to-yellow-200 rounded-full"></div>
+                  <div className="absolute top-20 left-20 w-6 h-6 bg-gradient-to-r from-purple-300 to-indigo-300 rounded-full animate-bounce" style={{ animationDelay: '0.5s' }}></div>
+                  
+                  {/* Additional pattern elements */}
+                  <div className="absolute top-12 right-12 w-4 h-4 border border-pink-200 rotate-12"></div>
+                  <div className="absolute bottom-16 left-2 w-6 h-6 border-2 border-orange-200 rounded-full"></div>
+                  <div className="absolute top-32 left-8 w-3 h-3 bg-purple-200 rounded-full"></div>
+                  <div className="absolute bottom-8 right-16 w-5 h-5 border border-yellow-200 rotate-45"></div>
+                  
+                  {/* Subtle grid pattern */}
+                  <div className="absolute inset-0" style={{
+                    backgroundImage: 'radial-gradient(circle at 1px 1px, rgba(139, 69, 19, 0.1) 1px, transparent 0)',
+                    backgroundSize: '20px 20px'
+                  }}></div>
                 </div>
                 
                 <div className="relative mb-6 z-10">
