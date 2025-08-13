@@ -4,26 +4,26 @@ const OurVision = () => {
   const visionPillars = [
     {
       icon: Eye,
-      title: "Innovation Excellence",
-      description: "Leading the future through cutting-edge solutions.",
+      title: "Academic Excellence",
+      description: "PYQs, toppers' notes, and study resources all in one place.",
       color: "from-purple-500 to-indigo-600"
     },
     {
       icon: Target,
-      title: "Strategic Growth",
-      description: "Building sustainable success through strategic planning.",
+      title: "Career Opportunities",
+      description: "Placements, internships, and startup opportunities centralized.",
       color: "from-orange-500 to-red-600"
     },
     {
       icon: Users,
-      title: "Community Impact",
-      description: "Creating meaningful change in communities.",
+      title: "Student Community",
+      description: "Connecting MUJ students for projects and collaboration.",
       color: "from-green-500 to-teal-600"
     },
     {
       icon: Lightbulb,
-      title: "Future-Ready Solutions",
-      description: "Anticipating tomorrow's needs today.",
+      title: "Campus Life Made Easy",
+      description: "From food ordering to event updates - everything simplified.",
       color: "from-blue-500 to-cyan-600"
     }
   ];
@@ -38,7 +38,7 @@ const OurVision = () => {
             </span>
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Shaping tomorrow through innovation, collaboration, and unwavering commitment to excellence
+            To centralize the entire MUJ student experience by providing everything in one place—academics, placements, internships, startup opportunities, projects, food ordering, and more. A one-stop platform to make college life easier and more efficient.
           </p>
         </div>
 
