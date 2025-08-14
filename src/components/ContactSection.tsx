@@ -115,7 +115,7 @@ const ContactSection = () => {
               <div className="text-center mb-8">
                 <h3 className="text-2xl font-bold text-gray-800 mb-4">Ready to Connect?</h3>
                 <p className="text-gray-600 mb-6">
-                  Join the MuJToppers community and take your academic journey to the next level.
+                  Join the MUJToppers community and take your academic journey to the next level.
                 </p>
               </div>
 
