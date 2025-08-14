@@ -92,29 +92,28 @@ const AboutHero = () => {
             MUJ Toppers
           </h1>
           {/* Graphical Thinking Format for Brains, Bunking, Balance */}
-          <div className="flex justify-center items-center space-x-8 mb-8 animate-fade-in" style={{ animationDelay: '0.2s' }}>
+          <div className="flex flex-col md:flex-row justify-center items-center space-y-6 md:space-y-0 md:space-x-8 mb-8 animate-fade-in" style={{ animationDelay: '0.2s' }}>
             
-            {/* BRAINS */}
             <div className="flex flex-col items-center group">
               <div className="relative mb-4">
                 {/* Brain Graphic */}
-                <div className="w-20 h-16 border-4 border-pink-500 rounded-full relative bg-pink-100/30">
-                  <div className="absolute top-2 left-3 w-4 h-4 border-2 border-pink-500 rounded-full"></div>
-                  <div className="absolute top-1 right-4 w-3 h-3 border-2 border-pink-500 rounded-full"></div>
-                  <div className="absolute bottom-3 left-5 w-6 h-3 border-2 border-pink-500 rounded"></div>
+                <div className="w-16 h-12 md:w-20 md:h-16 border-3 md:border-4 border-pink-500 rounded-full relative bg-pink-100/30">
+                  <div className="absolute top-1.5 left-2.5 md:top-2 md:left-3 w-3 h-3 md:w-4 md:h-4 border-2 border-pink-500 rounded-full"></div>
+                  <div className="absolute top-0.5 right-3 md:top-1 md:right-4 w-2.5 h-2.5 md:w-3 md:h-3 border-2 border-pink-500 rounded-full"></div>
+                  <div className="absolute bottom-2 left-4 md:bottom-3 md:left-5 w-5 h-2.5 md:w-6 md:h-3 border-2 border-pink-500 rounded"></div>
                   {/* Thinking sparks */}
-                  <div className="absolute -top-2 -right-2 w-2 h-2 bg-yellow-400 rounded-full animate-ping"></div>
-                  <div className="absolute -top-3 left-8 w-1 h-1 bg-yellow-400 rounded-full animate-pulse"></div>
+                  <div className="absolute -top-1.5 -right-1.5 md:-top-2 md:-right-2 w-1.5 h-1.5 md:w-2 md:h-2 bg-yellow-400 rounded-full animate-ping"></div>
+                  <div className="absolute -top-2.5 left-6 md:-top-3 md:left-8 w-0.5 h-0.5 md:w-1 md:h-1 bg-yellow-400 rounded-full animate-pulse"></div>
                 </div>
                 {/* Mathematical symbols around brain */}
-                <div className="absolute -top-4 -left-4 text-lg font-bold text-purple-600 transform -rotate-12">∑</div>
-                <div className="absolute -bottom-2 -right-4 text-sm font-bold text-blue-600 transform rotate-12">π</div>
+                <div className="absolute -top-3 -left-3 md:-top-4 md:-left-4 text-base md:text-lg font-bold text-purple-600 transform -rotate-12">∑</div>
+                <div className="absolute -bottom-1.5 -right-3 md:-bottom-2 md:-right-4 text-xs md:text-sm font-bold text-blue-600 transform rotate-12">π</div>
               </div>
-              <h3 className="text-xl font-bold text-pink-600 group-hover:scale-110 transition-transform">BRAINS</h3>
+              <h3 className="text-lg md:text-xl font-bold text-pink-600 group-hover:scale-110 transition-transform">BRAINS</h3>
             </div>
 
-            {/* Connector Line */}
-            <div className="flex items-center">
+            {/* Connector Line - Hidden on mobile */}
+            <div className="hidden md:flex items-center">
               <div className="w-12 h-1 bg-gradient-to-r from-pink-400 to-green-400 rounded-full"></div>
               <div className="w-0 h-0 border-l-4 border-l-green-400 border-t-2 border-b-2 border-t-transparent border-b-transparent"></div>
             </div>
@@ -124,27 +123,27 @@ const AboutHero = () => {
               <div className="relative mb-4">
                 {/* Coffee + Chill Graphic */}
                 <div className="relative">
-                  <div className="w-16 h-20 border-4 border-amber-500 rounded-b-lg bg-amber-100/30 relative">
-                    <div className="absolute -top-1 right-14 w-4 h-6 border-4 border-amber-500 rounded-r-full border-l-0"></div>
+                  <div className="w-12 h-16 md:w-16 md:h-20 border-3 md:border-4 border-amber-500 rounded-b-lg bg-amber-100/30 relative">
+                    <div className="absolute -top-0.5 right-10 md:-top-1 md:right-14 w-3 h-5 md:w-4 md:h-6 border-3 md:border-4 border-amber-500 rounded-r-full border-l-0"></div>
                     {/* Steam */}
-                    <div className="absolute -top-8 left-6 flex space-x-1">
-                      <div className="w-1 h-6 bg-gray-400 rounded-full animate-pulse opacity-60"></div>
-                      <div className="w-1 h-4 bg-gray-400 rounded-full animate-pulse opacity-40" style={{ animationDelay: '0.2s' }}></div>
+                    <div className="absolute -top-6 left-4.5 md:-top-8 md:left-6 flex space-x-1">
+                      <div className="w-0.5 h-4 md:w-1 md:h-6 bg-gray-400 rounded-full animate-pulse opacity-60"></div>
+                      <div className="w-0.5 h-3 md:w-1 md:h-4 bg-gray-400 rounded-full animate-pulse opacity-40" style={{ animationDelay: '0.2s' }}></div>
                     </div>
                     {/* Coffee level */}
-                    <div className="absolute top-3 left-2 w-12 h-3 bg-amber-400 rounded animate-pulse"></div>
+                    <div className="absolute top-2.5 left-1.5 md:top-3 md:left-2 w-9 h-2.5 md:w-12 md:h-3 bg-amber-400 rounded animate-pulse"></div>
                   </div>
                   {/* Zzz symbols */}
-                  <div className="absolute -top-6 -right-6 text-lg font-bold text-blue-500 animate-bounce">Z</div>
-                  <div className="absolute -top-4 -right-4 text-sm font-bold text-blue-400 animate-bounce" style={{ animationDelay: '0.3s' }}>z</div>
-                  <div className="absolute -top-2 -right-2 text-xs font-bold text-blue-300 animate-bounce" style={{ animationDelay: '0.6s' }}>z</div>
+                  <div className="absolute -top-5 -right-5 md:-top-6 md:-right-6 text-base md:text-lg font-bold text-blue-500 animate-bounce">Z</div>
+                  <div className="absolute -top-3 -right-3 md:-top-4 md:-right-4 text-sm font-bold text-blue-400 animate-bounce" style={{ animationDelay: '0.3s' }}>z</div>
+                  <div className="absolute -top-1.5 -right-1.5 md:-top-2 md:-right-2 text-xs font-bold text-blue-300 animate-bounce" style={{ animationDelay: '0.6s' }}>z</div>
                 </div>
               </div>
-              <h3 className="text-xl font-bold text-amber-600 group-hover:scale-110 transition-transform">BUNKING</h3>
+              <h3 className="text-lg md:text-xl font-bold text-amber-600 group-hover:scale-110 transition-transform">BUNKING</h3>
             </div>
 
-            {/* Connector Line */}
-            <div className="flex items-center">
+            {/* Connector Line - Hidden on mobile */}
+            <div className="hidden md:flex items-center">
               <div className="w-12 h-1 bg-gradient-to-r from-amber-400 to-emerald-400 rounded-full"></div>
               <div className="w-0 h-0 border-l-4 border-l-emerald-400 border-t-2 border-b-2 border-t-transparent border-b-transparent"></div>
             </div>
@@ -155,23 +154,23 @@ const AboutHero = () => {
                 {/* Balance Scale Graphic */}
                 <div className="relative">
                   {/* Scale base */}
-                  <div className="w-1 h-16 bg-emerald-600 mx-auto"></div>
+                  <div className="w-0.5 h-12 md:w-1 md:h-16 bg-emerald-600 mx-auto"></div>
                   {/* Scale beam */}
-                  <div className="absolute top-2 left-1/2 transform -translate-x-1/2 w-16 h-1 bg-emerald-600 rounded-full"></div>
+                  <div className="absolute top-1.5 left-1/2 transform -translate-x-1/2 w-12 h-0.5 md:top-2 md:w-16 md:h-1 bg-emerald-600 rounded-full"></div>
                   {/* Left pan */}
-                  <div className="absolute top-0 left-0 w-6 h-1 bg-emerald-500 rounded-full"></div>
-                  <div className="absolute -top-2 left-1 w-4 h-4 border-2 border-emerald-500 rounded-full bg-emerald-100/30"></div>
+                  <div className="absolute top-0 left-0 w-5 h-0.5 md:w-6 md:h-1 bg-emerald-500 rounded-full"></div>
+                  <div className="absolute -top-1.5 left-0.5 md:-top-2 md:left-1 w-3 h-3 md:w-4 md:h-4 border-2 border-emerald-500 rounded-full bg-emerald-100/30"></div>
                   {/* Right pan */}
-                  <div className="absolute top-0 right-0 w-6 h-1 bg-emerald-500 rounded-full"></div>
-                  <div className="absolute -top-2 right-1 w-4 h-4 border-2 border-emerald-500 rounded-full bg-emerald-100/30"></div>
+                  <div className="absolute top-0 right-0 w-5 h-0.5 md:w-6 md:h-1 bg-emerald-500 rounded-full"></div>
+                  <div className="absolute -top-1.5 right-0.5 md:-top-2 md:right-1 w-3 h-3 md:w-4 md:h-4 border-2 border-emerald-500 rounded-full bg-emerald-100/30"></div>
                   {/* Equilibrium indicators */}
-                  <div className="absolute -top-6 left-2 text-xs text-green-600">📚</div>
-                  <div className="absolute -top-6 right-2 text-xs text-green-600">🎯</div>
+                  <div className="absolute -top-5 left-1.5 md:-top-6 md:left-2 text-xs text-green-600">📚</div>
+                  <div className="absolute -top-5 right-1.5 md:-top-6 md:right-2 text-xs text-green-600">🎯</div>
                 </div>
                 {/* Harmony symbols */}
-                <div className="absolute -top-4 left-8 w-3 h-3 border border-green-500 rounded-full animate-spin" style={{ animationDuration: '4s' }}></div>
+                <div className="absolute -top-3 left-6 md:-top-4 md:left-8 w-2.5 h-2.5 md:w-3 md:h-3 border border-green-500 rounded-full animate-spin" style={{ animationDuration: '4s' }}></div>
               </div>
-              <h3 className="text-xl font-bold text-emerald-600 group-hover:scale-110 transition-transform">BALANCE</h3>
+              <h3 className="text-lg md:text-xl font-bold text-emerald-600 group-hover:scale-110 transition-transform">BALANCE</h3>
             </div>
           </div>
           
