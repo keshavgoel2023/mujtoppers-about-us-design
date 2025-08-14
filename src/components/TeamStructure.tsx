@@ -8,7 +8,7 @@ const TeamStructure = () => {
   const founders = [
     { name: "Swatantra Choudhary", role: "Founder", description: "The mind behind MUJ Toppers, uniting vision and people to shape the journey ahead.", image: "/lovable-uploads/swatantra.png", linkedin: "https://www.linkedin.com/in/swatantra-choudhary-b1139321a/" },
     { name: "Sahil Moharil", role: "Founder", description: "The heart of MUJ Toppers, solving at the right time and nurturing a culture of support.", image: "/lovable-uploads/sahil.jpg", linkedin: "https://www.linkedin.com/in/sahil-moharil/" },
-    { name: "Dr. Chandrapal Dangi", role: "Mentor", description: "The guiding force, giving us freedom to think big while keeping us grounded with wisdom.", image: "/lovable-uploads/chandrapal.png", linkedin: "https://www.linkedin.com/in/chandrapal-singh-dangi-4a226134/?originalSubdomain=in" }
+    { name: "Mr. Chandrapal Dangi", role: "Mentor", description: "The guiding force, giving us freedom to think big while keeping us grounded with wisdom.", image: "/lovable-uploads/chandrapal.png", linkedin: "https://www.linkedin.com/in/chandrapal-singh-dangi-4a226134/?originalSubdomain=in" }
   ];
 
   // Rest of the team members
