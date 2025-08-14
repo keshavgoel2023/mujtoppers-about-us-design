@@ -174,6 +174,11 @@ const AboutHero = () => {
               <h3 className="text-xl font-bold text-emerald-600 group-hover:scale-110 transition-transform">BALANCE</h3>
             </div>
           </div>
+          
+          {/* Welcome Message */}
+          <p className="text-2xl md:text-3xl text-gray-700 mb-8 font-medium animate-fade-in" style={{ animationDelay: '0.3s' }}>
+            Welcome to MUJ Toppers
+          </p>
           <p className="text-lg text-gray-600 mb-10 max-w-2xl mx-auto leading-relaxed animate-fade-in" style={{ animationDelay: '0.4s' }}>
             Your ultimate platform for academic excellence, peer connection, and balanced student life at MUJ.
           </p>
