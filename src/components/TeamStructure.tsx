@@ -26,11 +26,11 @@ const TeamStructure = () => {
   ];
 
   const coreCommittee = [
-    { name: "Aakshara Tomar", color: "bg-purple-500", description: "Strategic Excellence", image: "/lovable-uploads/aakshara.jpg" },
-    { name: "Ananya Tyagi", color: "bg-blue-500", description: "Innovation Leader", image: "/lovable-uploads/ananya.jpg" },
-    { name: "Sahil Lenka", color: "bg-green-500", description: "Growth Catalyst", image: "/lovable-uploads/sahil-jr.jpg" },
-    { name: "Udit Mishra", color: "bg-orange-500", description: "Vision Architect", image: "/lovable-uploads/udit.jpg" },
-    { name: "Vaishak Yadav", color: "bg-indigo-500", description: "Excellence Driver", image: "/lovable-uploads/vaishak.jpg" }
+    { name: "Aakshara Tomar", color: "bg-purple-500", description: "Promotions and Marketing Team", image: "/lovable-uploads/aakshara.jpg" },
+    { name: "Ananya Tyagi", color: "bg-blue-500", description: "Social Media Team", image: "/lovable-uploads/ananya.jpg" },
+    { name: "Sahil Lenka", color: "bg-green-500", description: "Tech Team", image: "/lovable-uploads/sahil-jr.jpg" },
+    { name: "Udit Mishra", color: "bg-orange-500", description: "Media Team", image: "/lovable-uploads/udit.jpg" },
+    { name: "Vaishak Yadav", color: "bg-indigo-500", description: "Blog Writer", image: "/lovable-uploads/vaishak.jpg" }
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
