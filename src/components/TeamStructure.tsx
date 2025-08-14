@@ -13,16 +13,16 @@ const TeamStructure = () => {
 
   // Rest of the team members
   const teamData = [
-    { name: "Chirag Jotwani", level: 2, color: "bg-purple-500", description: "Strategic oversight", image: "/lovable-uploads/chirag.jpg" },
-    { name: "Chandra Panday", level: 2, color: "bg-pink-500", description: "Operations lead", image: "/lovable-uploads/chandra.jpg" },
-    { name: "Vasu Verma", level: 3, color: "bg-green-500", description: "Tech coordination", image: "/lovable-uploads/vasu.jpg" },
-    { name: "Robin Singh", level: 3, color: "bg-indigo-500", description: "Partnership development", image: "/lovable-uploads/robin.jpg" },
-    { name: "Hardik Bhardwaj", level: 3, color: "bg-red-500", description: "Head of Sponsorship", image: "/lovable-uploads/hardik.jpg" },
-    { name: "Chanchal Agrawal", level: 3, color: "bg-yellow-500", description: "Administrative lead", image: "/lovable-uploads/chanchal.jpg" },
-    { name: "Harsh Tyagi", level: 4, color: "bg-teal-500", description: "Creative direction", image: "/lovable-uploads/harsh.jpg" },
-    { name: "Shaili Saxena", level: 4, color: "bg-cyan-500", description: "Technical leadership", image: "/lovable-uploads/shaili.jpg" },
-    { name: "Keshav Goel", level: 4, color: "bg-rose-500", description: "Operational efficiency", image: "/lovable-uploads/keshav.jpg" },
-    { name: "Abhi Garg", level: 4, color: "bg-violet-500", description: "Team excellence", image: "/lovable-uploads/abhi.png" }
+    { name: "Chirag Jotwani", level: 2, color: "bg-purple-500", description: "President", image: "/lovable-uploads/chirag.jpg" },
+    { name: "Chandra Panday", level: 2, color: "bg-pink-500", description: "Vice-President", image: "/lovable-uploads/chandra.jpg" },
+    { name: "Chanchal Agrawal", level: 3, color: "bg-yellow-500", description: "Managing Director", image: "/lovable-uploads/chanchal.jpg" },
+    { name: "Harsh Tyagi", level: 4, color: "bg-teal-500", description: "General Secretary", image: "/lovable-uploads/harsh.jpg" },
+    { name: "Vasu Verma", level: 3, color: "bg-green-500", description: "Technical Secretary", image: "/lovable-uploads/vasu.jpg" },
+    { name: "Keshav Goel", level: 4, color: "bg-rose-500", description: "Head of Tech", image: "/lovable-uploads/keshav.jpg" },
+    { name: "Shaili Saxena", level: 4, color: "bg-cyan-500", description: "Head of Design", image: "/lovable-uploads/shaili.jpg" },
+    { name: "Abhi Garg", level: 4, color: "bg-violet-500", description: "Operations Head", image: "/lovable-uploads/abhi.png" },
+    { name: "Hardik Bhardwaj", level: 3, color: "bg-red-500", description: "Head of Sponsors", image: "/lovable-uploads/hardik.jpg" },
+    { name: "Robin Singh", level: 3, color: "bg-indigo-500", description: "Head of Sponsors", image: "/lovable-uploads/robin.jpg" }
   ];
 
   const coreCommittee = [
