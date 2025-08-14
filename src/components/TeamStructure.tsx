@@ -1,14 +1,14 @@
 
 import { useState, useEffect } from "react";
 import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
-import { Linkedin, Mail } from "lucide-react";
+import { Linkedin, Mail, Youtube } from "lucide-react";
 
 const TeamStructure = () => {
   // Founders - displayed at top
   const founders = [
-    { name: "Swatantra Choudhary", role: "Founder", description: "The mind behind MUJ Toppers, uniting vision and people to shape the journey ahead.", image: "/lovable-uploads/swatantra.png", linkedin: "https://www.linkedin.com/in/swatantra-choudhary-b1139321a/" },
+    { name: "Swatantra Choudhary", role: "Founder", description: "The mind behind MUJ Toppers, uniting vision and people to shape the journey ahead.", image: "/lovable-uploads/swatantra.png", linkedin: "https://www.linkedin.com/in/swatantra-choudhary-b1139321a/", youtube: "http://www.youtube.com/@justswatantra" },
     { name: "Sahil Moharil", role: "Co-Founder", description: "The heart of MUJ Toppers, solving at the right time and nurturing a culture of support.", image: "/lovable-uploads/sahil.png", linkedin: "https://www.linkedin.com/in/sahil-moharil/" },
-    { name: "Mr. Chandrapal Dangi", role: "Mentor", description: "The guiding force, giving us freedom to think big while keeping us grounded with wisdom.", image: "/lovable-uploads/chandrapal.png", linkedin: "https://www.linkedin.com/in/chandrapal-singh-dangi-4a226134/?originalSubdomain=in" }
+    { name: "Mr. Chandrapal Dangi", role: "Mentor", description: "The guiding force, giving us freedom to think big while keeping us grounded with wisdom.", image: "/lovable-uploads/chandrapal.png", linkedin: "https://www.linkedin.com/in/chandrapal-singh-dangi-4a226134/?originalSubdomain=in", email: "handrapalsingh.dangi@jaipur.manipal.edu" }
   ];
 
   // Rest of the team members
@@ -146,9 +146,23 @@ const TeamStructure = () => {
                   >
                     <Linkedin className="w-4 h-4 text-blue-600" />
                   </a>
-                  <div className="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center hover:bg-orange-100 transition-colors cursor-pointer">
-                    <Mail className="w-4 h-4 text-orange-600" />
-                  </div>
+                  {founder.youtube ? (
+                    <a 
+                      href={founder.youtube}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center hover:bg-red-100 transition-colors cursor-pointer"
+                    >
+                      <Youtube className="w-4 h-4 text-red-600" />
+                    </a>
+                  ) : (
+                    <a 
+                      href={`mailto:${founder.email}`}
+                      className="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center hover:bg-orange-100 transition-colors cursor-pointer"
+                    >
+                      <Mail className="w-4 h-4 text-orange-600" />
+                    </a>
+                  )}
                 </div>
               </div>
             ))}
