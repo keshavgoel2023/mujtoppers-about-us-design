@@ -17,7 +17,7 @@ const AboutHero = () => {
       <div className="container mx-auto px-6 relative z-10">
         {/* Hero Header */}
         <div className="text-center mb-16 animate-fade-in">
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
+          <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-purple-600 via-orange-500 to-blue-600 bg-clip-text text-transparent">
             MUJ Toppers
           </h1>
           <p className="text-xl md:text-2xl text-muted-foreground mb-4">
@@ -31,60 +31,60 @@ const AboutHero = () => {
         {/* Value Proposition Cards */}
         <div className="grid md:grid-cols-3 gap-8 mb-16 animate-fade-in" style={{ animationDelay: '0.2s' }}>
           {/* Brains Card */}
-          <Card className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-2 border-primary/20 bg-gradient-to-br from-background to-primary/5">
+          <Card className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-2 border-purple-200 bg-gradient-to-br from-background to-purple-50">
             <CardHeader className="text-center pb-4">
-              <div className="mx-auto mb-4 p-4 rounded-full bg-primary/10 group-hover:bg-primary/20 transition-colors">
-                <Brain className="w-8 h-8 text-primary" />
+              <div className="mx-auto mb-4 p-4 rounded-full bg-gradient-to-br from-purple-500 to-indigo-600 group-hover:shadow-lg transition-all">
+                <Brain className="w-8 h-8 text-white" />
               </div>
-              <CardTitle className="text-2xl font-bold text-primary flex items-center justify-center gap-2">
+              <CardTitle className="text-2xl font-bold bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent flex items-center justify-center gap-2">
                 <span>🧠</span> BRAINS
               </CardTitle>
             </CardHeader>
             <CardContent className="text-center">
-              <p className="text-muted-foreground mb-6 leading-relaxed">
+              <p className="text-gray-600 mb-6 leading-relaxed">
                 Academic excellence tips, comprehensive notes, and curated study resources to boost your grades.
               </p>
-              <Button variant="outline" className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+              <Button variant="outline" className="w-full border-purple-300 text-purple-600 hover:bg-purple-600 hover:text-white transition-colors">
                 Learn More
               </Button>
             </CardContent>
           </Card>
 
           {/* Bunking Card */}
-          <Card className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-2 border-secondary/20 bg-gradient-to-br from-background to-secondary/5">
+          <Card className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-2 border-orange-200 bg-gradient-to-br from-background to-orange-50">
             <CardHeader className="text-center pb-4">
-              <div className="mx-auto mb-4 p-4 rounded-full bg-secondary/10 group-hover:bg-secondary/20 transition-colors">
-                <Coffee className="w-8 h-8 text-secondary" />
+              <div className="mx-auto mb-4 p-4 rounded-full bg-gradient-to-br from-orange-500 to-red-600 group-hover:shadow-lg transition-all">
+                <Coffee className="w-8 h-8 text-white" />
               </div>
-              <CardTitle className="text-2xl font-bold text-secondary flex items-center justify-center gap-2">
+              <CardTitle className="text-2xl font-bold bg-gradient-to-r from-orange-500 to-red-600 bg-clip-text text-transparent flex items-center justify-center gap-2">
                 <span>☕</span> BUNKING
               </CardTitle>
             </CardHeader>
             <CardContent className="text-center">
-              <p className="text-muted-foreground mb-6 leading-relaxed">
+              <p className="text-gray-600 mb-6 leading-relaxed">
                 Stay updated with event alerts, fun campus activities, and never miss out on the college experience.
               </p>
-              <Button variant="outline" className="w-full group-hover:bg-secondary group-hover:text-secondary-foreground transition-colors">
+              <Button variant="outline" className="w-full border-orange-300 text-orange-600 hover:bg-orange-600 hover:text-white transition-colors">
                 Learn More
               </Button>
             </CardContent>
           </Card>
 
           {/* Balance Card */}
-          <Card className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-2 border-accent/20 bg-gradient-to-br from-background to-accent/5">
+          <Card className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-2 border-blue-200 bg-gradient-to-br from-background to-blue-50">
             <CardHeader className="text-center pb-4">
-              <div className="mx-auto mb-4 p-4 rounded-full bg-accent/10 group-hover:bg-accent/20 transition-colors">
-                <Scale className="w-8 h-8 text-accent-foreground" />
+              <div className="mx-auto mb-4 p-4 rounded-full bg-gradient-to-br from-blue-500 to-cyan-600 group-hover:shadow-lg transition-all">
+                <Scale className="w-8 h-8 text-white" />
               </div>
-              <CardTitle className="text-2xl font-bold text-accent-foreground flex items-center justify-center gap-2">
+              <CardTitle className="text-2xl font-bold bg-gradient-to-r from-blue-500 to-cyan-600 bg-clip-text text-transparent flex items-center justify-center gap-2">
                 <span>⚖️</span> BALANCE
               </CardTitle>
             </CardHeader>
             <CardContent className="text-center">
-              <p className="text-muted-foreground mb-6 leading-relaxed">
+              <p className="text-gray-600 mb-6 leading-relaxed">
                 Mental wellness support, skill-building clubs, and tools to maintain perfect work-life balance.
               </p>
-              <Button variant="outline" className="w-full group-hover:bg-accent group-hover:text-accent-foreground transition-colors">
+              <Button variant="outline" className="w-full border-blue-300 text-blue-600 hover:bg-blue-600 hover:text-white transition-colors">
                 Learn More
               </Button>
             </CardContent>
@@ -99,17 +99,17 @@ const AboutHero = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
             <div className="text-center p-6 rounded-xl bg-background/50 hover:bg-background/80 transition-colors">
               <div className="text-3xl mb-2">📚</div>
-              <div className="text-2xl font-bold text-primary">500+</div>
+              <div className="text-2xl font-bold text-purple-600">500+</div>
               <div className="text-muted-foreground">Notes Shared</div>
             </div>
             <div className="text-center p-6 rounded-xl bg-background/50 hover:bg-background/80 transition-colors">
               <div className="text-3xl mb-2">🎉</div>
-              <div className="text-2xl font-bold text-secondary">50+</div>
+              <div className="text-2xl font-bold text-orange-600">50+</div>
               <div className="text-muted-foreground">Events Covered</div>
             </div>
             <div className="text-center p-6 rounded-xl bg-background/50 hover:bg-background/80 transition-colors">
               <div className="text-3xl mb-2">🤝</div>
-              <div className="text-2xl font-bold text-accent-foreground">1,000+</div>
+              <div className="text-2xl font-bold text-blue-600">1,000+</div>
               <div className="text-muted-foreground">Peers Connected</div>
             </div>
           </div>
@@ -119,7 +119,7 @@ const AboutHero = () => {
             <Card className="bg-background/50">
               <CardContent className="p-6">
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-white font-bold">
+                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-purple-500 to-indigo-600 flex items-center justify-center text-white font-bold">
                     A
                   </div>
                   <div>
@@ -135,7 +135,7 @@ const AboutHero = () => {
             <Card className="bg-background/50">
               <CardContent className="p-6">
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-secondary to-accent flex items-center justify-center text-white font-bold">
+                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-orange-500 to-red-600 flex items-center justify-center text-white font-bold">
                     R
                   </div>
                   <div>
@@ -154,7 +154,7 @@ const AboutHero = () => {
         <div className="text-center animate-fade-in" style={{ animationDelay: '0.6s' }}>
           <Button 
             size="lg" 
-            className="bg-gradient-to-r from-primary via-secondary to-accent hover:shadow-xl transition-all duration-300 hover:scale-105 px-8 py-4 text-lg"
+            className="bg-gradient-to-r from-purple-600 via-orange-500 to-blue-600 hover:shadow-xl transition-all duration-300 hover:scale-105 px-8 py-4 text-lg text-white"
           >
             Join MUJ Toppers Community
           </Button>
