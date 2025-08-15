@@ -81,13 +81,9 @@ const AboutHero = () => {
               </CardTitle>
             </CardHeader>
             <CardContent className="text-center">
-              <p className="text-gray-600 mb-4 text-sm">
+              <p className="text-gray-600 text-sm">
                 Academic excellence tips and study resources.
               </p>
-              <Button variant="outline" className="w-full border-yellow-300 text-yellow-700 hover:bg-yellow-500 hover:text-white transition-colors text-sm group/btn">
-                Learn More
-                <span className="ml-1 opacity-0 group-hover/btn:opacity-100 transition-opacity">📚</span>
-              </Button>
             </CardContent>
           </Card>
 
@@ -109,13 +105,9 @@ const AboutHero = () => {
               </CardTitle>
             </CardHeader>
             <CardContent className="text-center">
-              <p className="text-gray-600 mb-4 text-sm">
+              <p className="text-gray-600 text-sm">
                 Event alerts and fun campus activities.
               </p>
-              <Button variant="outline" className="w-full border-orange-300 text-orange-700 hover:bg-orange-500 hover:text-white transition-colors text-sm group/btn">
-                Learn More
-                <span className="ml-1 opacity-0 group-hover/btn:opacity-100 transition-opacity">🎉</span>
-              </Button>
             </CardContent>
           </Card>
 
@@ -137,13 +129,9 @@ const AboutHero = () => {
               </CardTitle>
             </CardHeader>
             <CardContent className="text-center">
-              <p className="text-gray-600 mb-4 text-sm">
+              <p className="text-gray-600 text-sm">
                 Mental wellness and skill-building clubs.
               </p>
-              <Button variant="outline" className="w-full border-amber-300 text-amber-700 hover:bg-amber-500 hover:text-white transition-colors text-sm group/btn">
-                Learn More
-                <span className="ml-1 opacity-0 group-hover/btn:opacity-100 transition-opacity">🧘</span>
-              </Button>
             </CardContent>
           </Card>
         </div>
