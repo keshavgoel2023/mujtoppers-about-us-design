@@ -156,6 +156,7 @@ const AboutHero = () => {
           <Button 
             size="lg" 
             className="bg-gradient-to-r from-yellow-500 via-orange-500 to-amber-500 hover:shadow-xl transition-all duration-300 hover:scale-105 px-6 py-3 text-white"
+            onClick={() => window.open('https://chat.whatsapp.com/EU9X6uJp8skIqRE1loeSDq?mode=ac_t', '_blank')}
           >
             Join MUJ Toppers
           </Button>
