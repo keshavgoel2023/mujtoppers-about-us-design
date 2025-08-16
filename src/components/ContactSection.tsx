@@ -121,7 +121,14 @@ const ContactSection = () => {
 
               <div className="mt-8 text-center text-gray-600">
                 <p className="text-sm">Visit us at:</p>
-                <p className="text-lg font-semibold text-purple-600 mb-6">www.mujtoppers.in</p>
+                <a 
+                  href="https://www.mujtoppers.in" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-lg font-semibold text-purple-600 hover:text-purple-700 transition-colors duration-300 mb-6 inline-block hover:underline"
+                >
+                  www.mujtoppers.in
+                </a>
                 
                 {/* Social Media Links */}
                 <div className="flex justify-center space-x-6">
