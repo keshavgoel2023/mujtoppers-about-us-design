@@ -57,102 +57,98 @@ const AboutHero = () => {
           </p>
         </div>
 
-        {/* Value Proposition Cards */}
-        <div className="grid md:grid-cols-3 gap-6 mb-12 animate-fade-in relative" style={{ animationDelay: '0.2s' }}>
+        {/* Combined Cards with Stats */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12 animate-fade-in relative" style={{ animationDelay: '0.2s' }}>
           {/* Decorative floating elements around cards */}
           <div className="absolute -top-4 left-1/4 w-8 h-8 border-2 border-dashed border-yellow-300 rounded-full opacity-30 animate-bounce" style={{ animationDelay: '0.5s', animationDuration: '3s' }}></div>
           <div className="absolute -bottom-4 right-1/4 w-6 h-6 bg-orange-200 rounded-full opacity-40 animate-bounce" style={{ animationDelay: '1.5s', animationDuration: '2.5s' }}></div>
           
-          {/* Brains Card */}
+          {/* Brains Card with Stats */}
           <Card className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border-yellow-200 bg-gradient-to-br from-white to-yellow-50 relative overflow-hidden">
             {/* Card doodles */}
             <div className="absolute top-2 right-2 w-4 h-4 border border-yellow-300 rounded-full opacity-20"></div>
             <div className="absolute bottom-2 left-2 w-3 h-3 bg-yellow-200 rounded-full opacity-30"></div>
             <div className="absolute top-1/2 right-1 w-1 h-8 bg-gradient-to-b from-yellow-300 to-transparent opacity-20 transform rotate-12"></div>
             
-            <CardHeader className="text-center pb-3 relative">
+            <CardHeader className="text-center pb-2 relative">
               <div className="mx-auto mb-3 p-3 rounded-full bg-gradient-to-br from-yellow-500 to-amber-600 group-hover:shadow-lg transition-all relative">
                 <Brain className="w-6 h-6 text-white" />
                 {/* Icon sparkles */}
                 <div className="absolute -top-1 -right-1 w-2 h-2 bg-white rounded-full opacity-0 group-hover:opacity-100 transition-opacity animate-ping"></div>
               </div>
-              <CardTitle className="text-xl font-bold bg-gradient-to-r from-yellow-600 to-amber-600 bg-clip-text text-transparent">
+              <CardTitle className="text-lg font-bold bg-gradient-to-r from-yellow-600 to-amber-600 bg-clip-text text-transparent mb-2">
                 🧠 BRAINS
               </CardTitle>
             </CardHeader>
-            <CardContent className="text-center">
+            <CardContent className="text-center space-y-3">
               <p className="text-gray-600 text-sm">
                 Academic excellence tips and study resources.
               </p>
+              <div className="pt-2 border-t border-yellow-100">
+                <div className="text-2xl mb-1">📚</div>
+                <div className="text-2xl font-bold text-yellow-600">500+</div>
+                <div className="text-xs text-gray-500">Notes Shared</div>
+              </div>
             </CardContent>
           </Card>
 
-          {/* Bunking Card */}
+          {/* Bunking Card with Stats */}
           <Card className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border-orange-200 bg-gradient-to-br from-white to-orange-50 relative overflow-hidden">
             {/* Card doodles */}
             <div className="absolute top-3 right-3 w-3 h-3 border border-orange-300 transform rotate-45 opacity-20"></div>
             <div className="absolute bottom-3 left-3 w-2 h-6 bg-orange-200 opacity-30 transform -rotate-12"></div>
             <div className="absolute top-1/3 left-1 text-orange-200 text-xs opacity-30">☕</div>
             
-            <CardHeader className="text-center pb-3 relative">
+            <CardHeader className="text-center pb-2 relative">
               <div className="mx-auto mb-3 p-3 rounded-full bg-gradient-to-br from-orange-500 to-red-500 group-hover:shadow-lg transition-all relative">
                 <Coffee className="w-6 h-6 text-white" />
                 {/* Icon sparkles */}
                 <div className="absolute -top-1 -left-1 w-2 h-2 bg-white rounded-full opacity-0 group-hover:opacity-100 transition-opacity animate-ping" style={{ animationDelay: '0.2s' }}></div>
               </div>
-              <CardTitle className="text-xl font-bold bg-gradient-to-r from-orange-600 to-red-600 bg-clip-text text-transparent">
+              <CardTitle className="text-lg font-bold bg-gradient-to-r from-orange-600 to-red-600 bg-clip-text text-transparent mb-2">
                 ☕ BUNKING
               </CardTitle>
             </CardHeader>
-            <CardContent className="text-center">
+            <CardContent className="text-center space-y-3">
               <p className="text-gray-600 text-sm">
                 Event alerts and fun campus activities.
               </p>
+              <div className="pt-2 border-t border-orange-100">
+                <div className="text-2xl mb-1">🎉</div>
+                <div className="text-2xl font-bold text-orange-600">50+</div>
+                <div className="text-xs text-gray-500">Events Covered</div>
+              </div>
             </CardContent>
           </Card>
 
-          {/* Balance Card */}
+          {/* Balance Card with Stats */}
           <Card className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border-amber-200 bg-gradient-to-br from-white to-amber-50 relative overflow-hidden">
             {/* Card doodles */}
             <div className="absolute top-2 left-2 w-5 h-1 bg-amber-200 opacity-30 transform rotate-45"></div>
             <div className="absolute bottom-2 right-2 w-4 h-4 border-2 border-amber-300 opacity-20 transform rotate-12"></div>
             <div className="absolute top-2/3 right-1 w-1 h-4 bg-amber-200 opacity-30"></div>
             
-            <CardHeader className="text-center pb-3 relative">
+            <CardHeader className="text-center pb-2 relative">
               <div className="mx-auto mb-3 p-3 rounded-full bg-gradient-to-br from-amber-500 to-yellow-600 group-hover:shadow-lg transition-all relative">
                 <Scale className="w-6 h-6 text-white" />
                 {/* Icon sparkles */}
                 <div className="absolute -bottom-1 -right-1 w-2 h-2 bg-white rounded-full opacity-0 group-hover:opacity-100 transition-opacity animate-ping" style={{ animationDelay: '0.4s' }}></div>
               </div>
-              <CardTitle className="text-xl font-bold bg-gradient-to-r from-amber-600 to-yellow-600 bg-clip-text text-transparent">
+              <CardTitle className="text-lg font-bold bg-gradient-to-r from-amber-600 to-yellow-600 bg-clip-text text-transparent mb-2">
                 ⚖️ BALANCE
               </CardTitle>
             </CardHeader>
-            <CardContent className="text-center">
+            <CardContent className="text-center space-y-3">
               <p className="text-gray-600 text-sm">
                 Mental wellness and skill-building clubs.
               </p>
+              <div className="pt-2 border-t border-amber-100">
+                <div className="text-2xl mb-1">🤝</div>
+                <div className="text-2xl font-bold text-amber-600">1,000+</div>
+                <div className="text-xs text-gray-500">Peers Connected</div>
+              </div>
             </CardContent>
           </Card>
-        </div>
-
-        {/* Stats Section */}
-        <div className="grid grid-cols-3 gap-4 mb-8 animate-fade-in" style={{ animationDelay: '0.4s' }}>
-          <div className="text-center p-4 rounded-xl bg-white/60 hover:bg-white/80 transition-colors">
-            <div className="text-2xl mb-1">📚</div>
-            <div className="text-xl font-bold text-yellow-600">500+</div>
-            <div className="text-xs text-gray-600">Notes Shared</div>
-          </div>
-          <div className="text-center p-4 rounded-xl bg-white/60 hover:bg-white/80 transition-colors">
-            <div className="text-2xl mb-1">🎉</div>
-            <div className="text-xl font-bold text-orange-600">50+</div>
-            <div className="text-xs text-gray-600">Events Covered</div>
-          </div>
-          <div className="text-center p-4 rounded-xl bg-white/60 hover:bg-white/80 transition-colors">
-            <div className="text-2xl mb-1">🤝</div>
-            <div className="text-xl font-bold text-amber-600">1,000+</div>
-            <div className="text-xs text-gray-600">Peers Connected</div>
-          </div>
         </div>
 
         {/* CTA Section */}
