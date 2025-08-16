@@ -161,6 +161,21 @@ const AboutHero = () => {
             Join MUJ Toppers
           </Button>
         </div>
+
+        {/* Visit Website Section */}
+        <div className="text-center mt-6 animate-fade-in" style={{ animationDelay: '0.8s' }}>
+          <p className="text-gray-600 text-sm">
+            Visit us at:{' '}
+            <a 
+              href="https://mujtoppers.in" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-yellow-600 hover:text-orange-600 font-medium underline decoration-dotted underline-offset-2 hover:underline-offset-4 transition-all duration-200"
+            >
+              www.mujtoppers.in
+            </a>
+          </p>
+        </div>
       </div>
     </section>
   );
