@@ -1,4 +1,5 @@
 import { Eye, Target, Users, Lightbulb } from "lucide-react";
+import Navbar from "@/components/Navbar";
 
 const OurVision = () => {
   const visionPillars = [
@@ -29,7 +30,9 @@ const OurVision = () => {
   ];
 
   return (
-    <section className="py-16 bg-gradient-to-br from-slate-50 to-blue-50">
+    <div className="min-h-screen">
+      <Navbar />
+      <section className="py-16 bg-gradient-to-br from-slate-50 to-blue-50 mt-16">
       <div className="container mx-auto px-4 sm:px-6">
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold mb-4">
@@ -67,6 +70,7 @@ const OurVision = () => {
         </div>
       </div>
     </section>
+    </div>
   );
 };
 
