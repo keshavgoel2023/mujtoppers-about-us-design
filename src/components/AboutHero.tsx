@@ -87,7 +87,7 @@ const AboutHero = () => {
               <div className="pt-2 border-t border-yellow-100">
                 <div className="text-2xl mb-1">📚</div>
                 <div className="text-2xl font-bold text-yellow-600">500+</div>
-                <div className="text-xs text-gray-500">Notes Shared</div>
+                <div className="text-xs text-gray-500">Material Shared</div>
               </div>
             </CardContent>
           </Card>
@@ -111,12 +111,12 @@ const AboutHero = () => {
             </CardHeader>
             <CardContent className="text-center space-y-3">
               <p className="text-gray-600 text-sm">
-                Event alerts and fun campus activities.
+                Engaging blogs and fun campus activities.
               </p>
               <div className="pt-2 border-t border-orange-100">
                 <div className="text-2xl mb-1">🎉</div>
                 <div className="text-2xl font-bold text-orange-600">50+</div>
-                <div className="text-xs text-gray-500">Events Covered</div>
+                <div className="text-xs text-gray-500">Blogs Shared</div>
               </div>
             </CardContent>
           </Card>
@@ -144,7 +144,7 @@ const AboutHero = () => {
               </p>
               <div className="pt-2 border-t border-amber-100">
                 <div className="text-2xl mb-1">🤝</div>
-                <div className="text-2xl font-bold text-amber-600">1,000+</div>
+                <div className="text-2xl font-bold text-amber-600">10,000+</div>
                 <div className="text-xs text-gray-500">Peers Connected</div>
               </div>
             </CardContent>
