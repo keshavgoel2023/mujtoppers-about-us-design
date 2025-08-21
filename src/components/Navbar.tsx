@@ -8,7 +8,7 @@ const navItems = [
   { label: "Material", href: "https://www.mujtoppers.in/#material" },
   { label: "College Tip", href: "https://www.mujtoppers.in/collegeTip" },
   { label: "Blogs", href: "https://www.mujtoppers.in/blogs" },
-  { label: "About Us", href: "/about" },
+  { label: "About Us", href: "https://about.mujtoppers.in" },
 ];
 
 const Navbar = () => {
