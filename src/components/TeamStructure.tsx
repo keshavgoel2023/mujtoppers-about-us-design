@@ -189,8 +189,8 @@ const TeamStructure = () => {
 
           {/* Desktop Grid Layout */}
           <div className="hidden md:block">
-            <div className="grid grid-cols-2 lg:grid-cols-5 gap-8 mb-8">
-              {teamData.slice(0, 5).map((member, index) => (
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 mb-8 max-w-5xl mx-auto">
+              {teamData.slice(0, 4).map((member, index) => (
                 <div key={member.name} className="text-center">
                   <div className="relative mb-4">
                     <div className="w-32 h-32 lg:w-36 lg:h-36 mx-auto rounded-full overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
@@ -215,30 +215,32 @@ const TeamStructure = () => {
               ))}
             </div>
             
-            <div className="grid grid-cols-2 lg:grid-cols-5 gap-8 justify-center">
-              {teamData.slice(5, 10).map((member, index) => (
-                <div key={member.name} className="text-center">
-                  <div className="relative mb-4">
-                    <div className="w-32 h-32 lg:w-36 lg:h-36 mx-auto rounded-full overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
-                      <img 
-                        src={member.image} 
-                        alt={member.name}
-                        className="w-full h-full object-cover"
-                      />
+            <div className="flex justify-center">
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-8 max-w-3xl">
+                {teamData.slice(4, 7).map((member, index) => (
+                  <div key={member.name} className="text-center">
+                    <div className="relative mb-4">
+                      <div className="w-32 h-32 lg:w-36 lg:h-36 mx-auto rounded-full overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
+                        <img 
+                          src={member.image} 
+                          alt={member.name}
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                      <div className="absolute -bottom-2 -right-2 w-8 h-8 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full flex items-center justify-center">
+                        <img 
+                          src="/lovable-uploads/70930428-30af-42d3-a670-163eed7264cf.png" 
+                          alt="MUJ Logo" 
+                          className="w-6 h-6 rounded-full object-contain"
+                        />
+                      </div>
                     </div>
-                    <div className="absolute -bottom-2 -right-2 w-8 h-8 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full flex items-center justify-center">
-                      <img 
-                        src="/lovable-uploads/70930428-30af-42d3-a670-163eed7264cf.png" 
-                        alt="MUJ Logo" 
-                        className="w-6 h-6 rounded-full object-contain"
-                      />
-                    </div>
+                    
+                    <h4 className="font-bold text-gray-800 text-lg mb-1">{member.name}</h4>
+                    <p className="text-sm text-gray-600 uppercase tracking-wide">{member.description}</p>
                   </div>
-                  
-                  <h4 className="font-bold text-gray-800 text-lg mb-1">{member.name}</h4>
-                  <p className="text-sm text-gray-600 uppercase tracking-wide">{member.description}</p>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           </div>
 
@@ -317,41 +319,9 @@ const TeamStructure = () => {
           
           {/* Desktop Grid Layout */}
           <div className="hidden md:block max-w-6xl mx-auto px-4">
-            {/* First row - 3 members */}
-            <div className="flex justify-center mb-8 sm:mb-12">
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 max-w-4xl">
-                {coreCommittee.slice(0, 3).map((member, index) => (
-                  <div 
-                    key={member.name}
-                    className="text-center"
-                  >
-                    <div className="relative mb-4 sm:mb-6">
-                      <div className={`w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 ${member.color} rounded-full mx-auto shadow-xl transition-all duration-300 hover:shadow-2xl flex items-center justify-center overflow-hidden`}>
-                        <div className="w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 bg-white rounded-full flex items-center justify-center shadow-inner overflow-hidden">
-                          <img 
-                            src={member.image} 
-                            alt={member.name}
-                            className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 rounded-full object-cover"
-                          />
-                        </div>
-                      </div>
-                    </div>
-                    
-                    <h4 className="font-bold text-gray-800 text-base sm:text-lg mb-2 px-2">{member.name}</h4>
-                    <p className="text-xs sm:text-sm text-gray-600 leading-relaxed px-2">{member.description}</p>
-                    
-                    <div className="flex justify-center mt-3">
-                      <div className="w-6 sm:w-8 h-1 bg-gradient-to-r from-purple-500 to-orange-500 rounded-full"></div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-            
-            {/* Second row - 2 members */}
             <div className="flex justify-center">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 sm:gap-12 max-w-2xl">
-                {coreCommittee.slice(3, 5).map((member, index) => (
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 max-w-5xl">
+                {coreCommittee.map((member, index) => (
                   <div 
                     key={member.name}
                     className="text-center"
