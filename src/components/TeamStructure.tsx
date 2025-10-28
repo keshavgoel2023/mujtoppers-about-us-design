@@ -19,14 +19,10 @@ const TeamStructure = () => {
     { name: "Harsh Tyagi", level: 4, color: "bg-teal-500", description: "General Secretary", image: "/lovable-uploads/harsh.jpg" },
     { name: "Vasu Verma", level: 3, color: "bg-green-500", description: "Technical Secretary", image: "/lovable-uploads/vasu.jpg" },
     { name: "Keshav Goel", level: 4, color: "bg-rose-500", description: "Head of Tech", image: "/lovable-uploads/keshav.jpg" },
-    { name: "Shaili Saxena", level: 4, color: "bg-cyan-500", description: "Head of Design", image: "/lovable-uploads/shaili.jpg" },
-    { name: "Abhi Garg", level: 4, color: "bg-violet-500", description: "Operations Head", image: "/lovable-uploads/abhi.png" },
-    { name: "Hardik Bhardwaj", level: 3, color: "bg-red-500", description: "Head of Sponsors", image: "/lovable-uploads/hardik.jpg" },
-    { name: "Robin Singh", level: 3, color: "bg-indigo-500", description: "Head of Sponsors", image: "/lovable-uploads/robin.jpg" }
+    { name: "Shaili Saxena", level: 4, color: "bg-cyan-500", description: "Head of Design", image: "/lovable-uploads/shaili.jpg" }
   ];
 
   const coreCommittee = [
-    { name: "Aakshara Tomar", color: "bg-purple-500", description: "Promotions and Marketing Team", image: "/lovable-uploads/aakshara.jpg" },
     { name: "Ananya Tyagi", color: "bg-blue-500", description: "Social Media Team", image: "/lovable-uploads/ananya.jpg" },
     { name: "Sahil Lenka", color: "bg-green-500", description: "Tech Team", image: "/lovable-uploads/sahil-jr.jpg" },
     { name: "Udit Mishra", color: "bg-orange-500", description: "Media Team", image: "/lovable-uploads/udit.jpg" },
