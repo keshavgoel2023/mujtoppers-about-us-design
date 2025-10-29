@@ -108,13 +108,16 @@ const TeamStructure = () => {
                   }}
                 ></div>
                 
-                <div className="relative mb-6 z-10">
+                  <div className="relative mb-6 z-10">
                   <div className="w-24 h-24 sm:w-28 sm:h-28 mx-auto bg-gradient-to-r from-orange-400 to-orange-500 rounded-full p-1">
                     <div className="w-full h-full bg-white rounded-full flex items-center justify-center overflow-hidden">
                       <img 
                         src={founder.image} 
                         alt={founder.name}
                         className="w-20 h-20 sm:w-24 sm:h-24 rounded-full object-cover"
+                        loading="eager"
+                        fetchPriority="high"
+                        decoding="async"
                       />
                     </div>
                   </div>
@@ -199,6 +202,8 @@ const TeamStructure = () => {
                           src={member.image} 
                           alt={member.name}
                           className="w-full h-full object-cover"
+                          loading="lazy"
+                          decoding="async"
                         />
                       </div>
                       <div className="absolute -bottom-2 -right-2 w-8 h-8 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full flex items-center justify-center">
@@ -227,6 +232,8 @@ const TeamStructure = () => {
                           src={member.image} 
                           alt={member.name}
                           className="w-full h-full object-cover"
+                          loading="lazy"
+                          decoding="async"
                         />
                       </div>
                       <div className="absolute -bottom-2 -right-2 w-8 h-8 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full flex items-center justify-center">
@@ -234,6 +241,8 @@ const TeamStructure = () => {
                           src="/lovable-uploads/70930428-30af-42d3-a670-163eed7264cf.png" 
                           alt="MUJ Logo" 
                           className="w-6 h-6 rounded-full object-contain"
+                          loading="lazy"
+                          decoding="async"
                         />
                       </div>
                     </div>
@@ -267,6 +276,8 @@ const TeamStructure = () => {
                               src={member.image} 
                               alt={member.name}
                               className="w-36 h-36 sm:w-44 sm:h-44 rounded-full object-cover"
+                              loading="lazy"
+                              decoding="async"
                             />
                           </div>
                         </div>
@@ -329,12 +340,14 @@ const TeamStructure = () => {
                     className="text-center"
                   >
                     <div className="relative mb-4 sm:mb-6">
-                      <div className={`w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 ${member.color} rounded-full mx-auto shadow-xl transition-all duration-300 hover:shadow-2xl flex items-center justify-center overflow-hidden`}>
+                       <div className={`w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 ${member.color} rounded-full mx-auto shadow-xl transition-all duration-300 hover:shadow-2xl flex items-center justify-center overflow-hidden`}>
                         <div className="w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 bg-white rounded-full flex items-center justify-center shadow-inner overflow-hidden">
                           <img 
                             src={member.image} 
                             alt={member.name}
                             className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 rounded-full object-cover"
+                            loading="lazy"
+                            decoding="async"
                           />
                         </div>
                       </div>
@@ -373,6 +386,8 @@ const TeamStructure = () => {
                               src={member.image} 
                               alt={member.name}
                               className="w-36 h-36 sm:w-44 sm:h-44 rounded-full object-cover"
+                              loading="lazy"
+                              decoding="async"
                             />
                           </div>
                         </div>
