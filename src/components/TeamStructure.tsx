@@ -189,34 +189,36 @@ const TeamStructure = () => {
 
           {/* Desktop Grid Layout */}
           <div className="hidden md:block">
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 mb-8 max-w-5xl mx-auto">
-              {teamData.slice(0, 4).map((member, index) => (
-                <div key={member.name} className="text-center">
-                  <div className="relative mb-4">
-                    <div className="w-32 h-32 lg:w-36 lg:h-36 mx-auto rounded-full overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
-                      <img 
-                        src={member.image} 
-                        alt={member.name}
-                        className="w-full h-full object-cover"
-                      />
+            <div className="flex justify-center mb-8">
+              <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 max-w-6xl">
+                {teamData.slice(0, 4).map((member, index) => (
+                  <div key={member.name} className="text-center">
+                    <div className="relative mb-4">
+                      <div className="w-32 h-32 lg:w-36 lg:h-36 mx-auto rounded-full overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
+                        <img 
+                          src={member.image} 
+                          alt={member.name}
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                      <div className="absolute -bottom-2 -right-2 w-8 h-8 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full flex items-center justify-center">
+                        <img 
+                          src="/lovable-uploads/70930428-30af-42d3-a670-163eed7264cf.png" 
+                          alt="MUJ Logo" 
+                          className="w-6 h-6 rounded-full object-contain"
+                        />
+                      </div>
                     </div>
-                    <div className="absolute -bottom-2 -right-2 w-8 h-8 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full flex items-center justify-center">
-                      <img 
-                        src="/lovable-uploads/70930428-30af-42d3-a670-163eed7264cf.png" 
-                        alt="MUJ Logo" 
-                        className="w-6 h-6 rounded-full object-contain"
-                      />
-                    </div>
+                    
+                    <h4 className="font-bold text-gray-800 text-lg mb-1">{member.name}</h4>
+                    <p className="text-sm text-gray-600 uppercase tracking-wide">{member.description}</p>
                   </div>
-                  
-                  <h4 className="font-bold text-gray-800 text-lg mb-1">{member.name}</h4>
-                  <p className="text-sm text-gray-600 uppercase tracking-wide">{member.description}</p>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
             
             <div className="flex justify-center">
-              <div className="grid grid-cols-2 md:grid-cols-3 gap-8 max-w-3xl">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 lg:gap-8 max-w-4xl">
                 {teamData.slice(4, 7).map((member, index) => (
                   <div key={member.name} className="text-center">
                     <div className="relative mb-4">
