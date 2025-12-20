@@ -24,7 +24,7 @@ const TeamStructure = () => {
 
   const coreCommittee = [
     { name: "Ananya Tyagi", color: "bg-blue-500", description: "Social Media Team", image: "/lovable-uploads/ananya.jpg" },
-    { name: "Sahil Lenka", color: "bg-green-500", description: "Tech Team", image: "/lovable-uploads/sahil-jr.jpg" },
+    { name: "Namit Tickoo", color: "bg-green-500", description: "Tech Team", image: "/lovable-uploads/namit.jpg" },
     { name: "Udit Mishra", color: "bg-orange-500", description: "Media Team", image: "/lovable-uploads/udit.jpg" },
     { name: "Vaishak Yadav", color: "bg-indigo-500", description: "Blog Writer", image: "/lovable-uploads/vaishak.jpg" }
   ];
