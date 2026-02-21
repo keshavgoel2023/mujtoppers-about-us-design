@@ -18,7 +18,6 @@ const TeamStructure = () => {
     { name: "Chanchal Agrawal", level: 3, color: "bg-yellow-500", description: "Managing Director", image: "/lovable-uploads/chanchal.jpg" },
     { name: "Harsh Tyagi", level: 4, color: "bg-teal-500", description: "General Secretary", image: "/lovable-uploads/harsh.jpg" },
     { name: "Vasu Verma", level: 3, color: "bg-green-500", description: "Technical Secretary", image: "/lovable-uploads/vasu.jpg" },
-    { name: "Keshav Goel", level: 4, color: "bg-rose-500", description: "Head of Tech", image: "/lovable-uploads/keshav.jpg" },
     { name: "Shaili Saxena", level: 4, color: "bg-cyan-500", description: "Head of Design", image: "/lovable-uploads/shaili.jpg" }
   ];
 
@@ -223,7 +222,7 @@ const TeamStructure = () => {
             </div>
             
             <div className="flex justify-center">
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 lg:gap-8 max-w-4xl">
+              <div className="grid grid-cols-2 gap-6 lg:gap-8 max-w-2xl">
                 {teamData.slice(4, 7).map((member, index) => (
                   <div key={member.name} className="text-center">
                     <div className="relative mb-4">
