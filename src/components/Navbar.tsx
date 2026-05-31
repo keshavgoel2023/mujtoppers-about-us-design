@@ -5,7 +5,7 @@ import { Menu, X } from "lucide-react";
 
 const navItems = [
   { label: "Home", href: "https://www.mujtoppers.in" },
-  { label: "Material", href: "https://www.mujtoppers.in/#material" },
+  { label: "Material", href: "https://material.mujtoppers.in/" },
   { label: "College Tip", href: "https://www.mujtoppers.in/collegeTip" },
   { label: "Blogs", href: "https://www.mujtoppers.in/blogs" },
   { label: "About Us", href: "https://about.mujtoppers.in" },

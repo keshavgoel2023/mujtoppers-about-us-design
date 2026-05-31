@@ -95,6 +95,13 @@ All colors MUST be HSL.
 }
 
 @layer base {
+  /* Smooth scrolling for in-page anchors and programmatic scrolling */
+  html {
+    scroll-behavior: smooth;
+    /* Reserve space for the fixed navbar when using fragment links */
+    scroll-padding-top: 72px;
+  }
+
   * {
     @apply border-border;
   }
