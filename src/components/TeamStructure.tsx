@@ -112,7 +112,7 @@ const TeamStructure = () => {
     }
   ];
 
-  const [activeIndex, setActiveIndex] = useState(3);
+  const [activeIndex, setActiveIndex] = useState(0);
   const [hovered, setHovered] = useState<number | null>(null);
   const isDragging = useRef(false);
   const dragStartX = useRef(0);
