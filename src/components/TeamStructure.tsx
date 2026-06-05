@@ -55,18 +55,11 @@ const TeamStructure = () => {
         image: "/lovable-uploads/shwetanshu.jpg",
     },
     {
-        name: "Arkadeep",
+        name: "Kislay Singh",
         level: 4,
-        color: "bg-red-500",
-        description: "Head of Tech",
-        image: "/lovable-uploads/arkdeep.jpeg",
-    },
-    {
-      name: "Ruhaani Satija",
-      level: 3,
-      color: "bg-green-500",
-      description: "Head Of Design",
-      image: "/lovable-uploads/RUHAANI.jpeg",    
+        color: "bg-pink-500",
+        description: "Head of Editorial",
+        image: "/lovable-uploads/kislay.jpg",
     },
     {
       name: "Vanshika",
@@ -76,11 +69,18 @@ const TeamStructure = () => {
       image: "/lovable-uploads/vanshika.jpg",
     },
     {
-        name: "Kislay Singh",
+        name: "Arkadeep",
         level: 4,
-        color: "bg-pink-500",
-        description: "Head of Editorial",
-        image: "/lovable-uploads/kislay.jpg",
+        color: "bg-red-500",
+        description: "Head of Tech",
+        image: "/lovable-uploads/arkdeep.jpeg",
+    },
+    {
+      name: "Ruhaani Satija",
+      level: 4,
+      color: "bg-green-500",
+      description: "Head Of Design",
+      image: "/lovable-uploads/RUHAANI.jpeg",    
     },
     {
         name: "Manit Garg",
@@ -90,6 +90,51 @@ const TeamStructure = () => {
         image: "/lovable-uploads/manit.jpeg",
     }
   ];
+  const previousteamData = [
+    {
+      name: "Chirag Jotwani",
+      level: 2,
+      color: "bg-purple-500",
+      description: "President",
+      image: "/lovable-uploads/chirag.jpg",
+    },
+    {
+      name: "Chandra Panday",
+      level: 3,
+      color: "bg-purple-500",
+      description: "Vice President",
+      image: "/lovable-uploads/chandra .jpg",
+    },
+    {
+        name: "Chanchal Agrawal",
+        level: 4,
+        color: "bg-yellow-500",
+        description: "Managing Director",
+        image: "/lovable-uploads/chanchal.jpg",
+    },
+    {
+        name: "Harsh Tyagi",
+        level: 4,
+        color: "bg-teal-500",
+        description: "General Secretary",
+        image: "/lovable-uploads/harsh.jpg",
+    },
+    {
+      name: "Shaili Saxena",
+      level: 4,
+      color: "bg-cyan-500",
+      description: "Social Media Head",
+      image: "/lovable-uploads/shaili.jpg",
+    },
+    {
+        name: "Keshav Goel",
+        level: 4,
+        color: "bg-red-500",
+        description: "Tech Lead",
+        image: "/lovable-uploads/keshav.jpeg",
+    }
+  ];
+  
 
   const coreCommittee = [
     {
@@ -113,11 +158,19 @@ const TeamStructure = () => {
   ];
 
   const [activeIndex, setActiveIndex] = useState(0);
+  const [executiveType, setExecutiveType] = useState<
+    "current" | "previous"
+  >("current");
   const [hovered, setHovered] = useState<number | null>(null);
   const isDragging = useRef(false);
   const dragStartX = useRef(0);
 
-  const totalExecutives = teamData.length;
+  const displayedTeam =
+  executiveType === "current"
+    ? teamData
+    : previousteamData;
+  const totalExecutives = Math.max(displayedTeam.length, 1);
+
   const visibleCount = 5;
   const offset = Math.floor(visibleCount / 2);
 
@@ -303,10 +356,39 @@ const TeamStructure = () => {
         <div className="mx-auto mb-16 max-w-6xl md:mb-20">
           <div className="mb-12 text-center">
             <h3 className="mb-4 text-3xl font-bold text-gray-800 sm:text-4xl">Meet the Executives</h3>
+            <div className="mb-6 flex justify-center gap-4">
+              <button
+                onClick={() => {
+                  setExecutiveType("current");
+                  setActiveIndex(0);
+                }}
+                className={`rounded-full px-5 py-2 font-medium transition-all ${
+                  executiveType === "current"
+                    ? "bg-gradient-to-r from-purple-500 to-orange-500 text-white"
+                    : "bg-white text-gray-700 shadow"
+                }`}
+              >
+                2026-Present
+              </button>
+              <button
+                onClick={() => {
+                  setExecutiveType("previous");
+                  setActiveIndex(0);
+                }}
+                className={`rounded-full px-5 py-2 font-medium transition-all ${
+                  executiveType === "previous"
+                    ? "bg-gradient-to-r from-purple-500 to-orange-500 text-white"
+                    : "bg-white text-gray-700 shadow"
+                }`}
+              >
+                2024-2025
+              </button>
+            </div>
             <div className="mx-auto h-1 w-24 rounded-full bg-gradient-to-r from-purple-500 to-orange-500"></div>
           </div>
 
           <div
+            key={executiveType}
             className="relative mx-auto flex w-full max-w-6xl items-center justify-center px-3 py-10 sm:px-6"
             onMouseDown={handleMouseDown}
             onMouseUp={handleMouseUp}
@@ -329,7 +411,7 @@ const TeamStructure = () => {
 
             <div className="flex w-full items-end justify-center gap-3 sm:gap-4 lg:gap-5">
               {visibleIndices.map((memberIndex, slot) => {
-                const member = teamData[memberIndex];
+                const member = displayedTeam[memberIndex];
                 const meta = slotMeta[slot];
                 const isCenter = slot === 2;
                 const isHovered = hovered === slot;
@@ -409,7 +491,7 @@ const TeamStructure = () => {
           </div>
 
           <div className="mt-6 flex justify-center gap-2">
-            {teamData.map((_, index) => (
+            {displayedTeam.map((_, index) => (
               <button
                 key={index}
                 type="button"
