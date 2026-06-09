@@ -381,7 +381,7 @@ const TeamStructure = () => {
                     : "bg-white text-gray-700 shadow"
                 }`}
               >
-                2024-2025
+                2024-2026
               </button>
             </div>
             <div className="mx-auto h-1 w-24 rounded-full bg-gradient-to-r from-purple-500 to-orange-500"></div>
