@@ -509,11 +509,20 @@ const TeamStructure = () => {
 
         <div className="text-center">
           <h3 className="mb-4 text-2xl font-bold text-gray-800 sm:text-3xl">Core Committee</h3>
-          <p className="mx-auto mb-8 max-w-2xl px-4 text-base text-gray-600 sm:mb-12 sm:text-lg">
+          <p className="mx-auto mb-4 max-w-2xl px-4 text-base text-gray-600 sm:text-lg">
             The driving force behind our success - dedicated leaders shaping the future
           </p>
 
-          <div className="mx-auto w-full max-w-none px-0 pb-2 sm:px-4">
+          <div className="mb-6 flex justify-center gap-4">
+              <button
+                className="rounded-full bg-gradient-to-r from-purple-500 to-orange-500 px-5 py-2 font-medium text-white"
+              >
+                2026-Present
+              </button>
+            </div>
+            <div className="mx-auto h-1 w-24 rounded-full bg-gradient-to-r from-purple-500 to-orange-500"></div>
+
+          <div className="mx-auto mt-10 w-full max-w-none px-0 pb-2 sm:px-4">
             <div className="flex w-full flex-col items-center gap-4 sm:flex-row sm:justify-center sm:gap-4 lg:gap-6">
               {coreCommittee.map((member) => (
                 <div
