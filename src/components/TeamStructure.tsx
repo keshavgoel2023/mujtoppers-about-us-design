@@ -83,11 +83,18 @@ const TeamStructure = () => {
       image: "/lovable-uploads/RUHAANI.jpeg",    
     },
     {
-        name: "Manit Garg",
+      name: "Manit Garg",
+      level: 4,
+      color: "bg-indigo-500",
+      description: "Head of Operations",
+      image: "/lovable-uploads/manit.jpeg",
+    },
+    {
+        name: "Ananye Verma",
         level: 4,
         color: "bg-indigo-500",
-        description: "Head of Operations",
-        image: "/lovable-uploads/manit.jpeg",
+        description: "Head of Marketing",
+        image: "/lovable-uploads/ananye.jpeg",
     }
   ];
   const previousteamData = [
