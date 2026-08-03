@@ -161,6 +161,12 @@ const TeamStructure = () => {
       color: "bg-orange-500",
       description: "Operations Team",
       image: "/lovable-uploads/auritro.jpeg",
+    },
+    {
+      name: "Kingshuk",
+      color: "bg-orange-500",
+      description: "Social Media Team",
+      image: "/lovable-uploads/kingshuk.jpeg",
     }
   ];
 
